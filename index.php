@@ -12,25 +12,28 @@
 <body>
     <?php
         include_once('navbar.php');
-        $page = $_GET['page'];
+        if(isset($_GET['page'])){
+            $page = $_GET['page'];
         
-        switch($page)
-        {
-            case 'home':
-                include_once('home.php');
-            break;
-            case 'about':
-                include_once('about.php');
-            break;
-            case 'contact':
-                include_once('contact.php');
-            break;
-            case 'products':
-                include_once('products.php');
-            break;
-            default:
+            switch($page)
+            {
+                case 'home':
+                    include_once('home.php');
                 break;
+                case 'about':
+                    include_once('about.php');
+                break;
+                case 'contact':
+                    include_once('contact.php');
+                break;
+                case 'products':
+                    include_once('products.php');
+                break;
+                default:
+                    break;
+            }
         }
+        
     ?>
 </body>
 </html>
