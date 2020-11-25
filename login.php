@@ -8,7 +8,7 @@
         </div>
         <div class="form-group">
         <label for="password">Password:</label>
-        <input type="text" class="form-control" placeholder="Enter password" name="password">
+        <input type="password" class="form-control" placeholder="Enter password" name="password">
         </div>
         
         <button type="submit" name="insert" class="btn btn-info">Insert</button>
