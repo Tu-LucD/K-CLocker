@@ -21,3 +21,48 @@ nav{
 .bg-navy{
     background-color: #1f2833;
 }
+.homeTitles{    
+    height: 100px;
+    margin-top: 40px;
+    margin-bottom: -40px;
+    
+    background-color: #C5C6C7;
+}
+.homeImage{
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+}
+
+/* Footwear Image */
+#homeImage1{
+    background-image: url("images/stock1.jpg");
+}
+/* Hockey Image */
+#homeImage2{
+    background-image: url("images/stock4.jpg");
+}
+/* Volleyball Image */
+#homeImage3{
+    background-image: url("images/stock3.jpg");
+}
+/* Basketball Image */
+#homeImage4{
+    background-image: url("images/stock2.jpg");
+}
+/* Baseball Image */
+#homeImage5{
+    background-image: url("images/stock5.jpg");
+}
+/* Badminton Image */
+#homeImage6{
+    background-image: url("images/stock6.jpg");
+}
+/* Tennis Image */
+#homeImage7{
+    background-image: url("images/stock7.jpg");
+}
