@@ -27,8 +27,8 @@
             break;
             case 'products':
                 include_once('products.php');
-            break;    
-            default:                
+            break;
+            default:
                 break;
         }
     ?>
