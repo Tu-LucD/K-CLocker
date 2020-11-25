@@ -1,1 +1,1 @@
-<h3>This is the products page</h3>
+<h2>This is the products page</h2>

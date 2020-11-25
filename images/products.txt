@@ -1,0 +1,1 @@
+name the images with the following format: imageX.png/jpeg where x is the product_id

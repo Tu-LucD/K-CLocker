@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-        include_once('navbar.php');
+        include_once('navbar.php');        
         if(isset($_GET['page'])){
             $page = $_GET['page'];
         
@@ -39,6 +39,7 @@
                     break;
             }
         }
+        else include_once('home.php');
         
     ?>
 </body>

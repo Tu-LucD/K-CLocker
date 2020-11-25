@@ -1,1 +1,1 @@
-<h3>Create an account</h3>
+<h2>Create an account</h2>
