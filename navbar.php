@@ -6,13 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.php?page=about">About</a>
+        <a class="nav-link" style="color: white;" href="index.php?page=about">About</a>
       </li>      
       <li class="nav-item">
-        <a class="nav-link" href="index.php?page=products">Products</a>
+        <a class="nav-link" style="color: white;" href="index.php?page=products">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.php?page=contact">Contact</a>
+        <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
       </li>
       <?php
         //To do: if statement that check if user is logged in and echos
