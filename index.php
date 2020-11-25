@@ -29,6 +29,12 @@
                 case 'products':
                     include_once('products.php');
                 break;
+                case 'login':
+                    include_once('login.php');
+                break;
+                case 'createAccount':
+                    include_once('createAccount.php');
+                break;
                 default:
                     break;
             }

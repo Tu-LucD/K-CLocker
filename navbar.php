@@ -20,7 +20,7 @@
         //  else: echo login button
         //  <button type="button" class="btn btn-info">Login</button>
       ?>
-        <a href="login.php"><button type="button" class="btn btn-info">Login</button></a>      
+        <a href="index.php?page=login"><button type="button" class="btn btn-info">Login</button></a>      
     </ul>
   </div>
 </nav>
