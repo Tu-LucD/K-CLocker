@@ -8,7 +8,6 @@ h2{
     margin-bottom: 40px;
     color: #66FCF1;
 }
-
 #navLogo{
     height: 80px;
     width: 80px;
@@ -22,6 +21,10 @@ h2{
 .homeTitles{    
     height: 150px;            
     background-color: #C5C6C7;
+    font-size: 40px;
+}
+.homeTitles h2{
+    font-size: 45px;
 }
 .homeImage{
     position: relative;    
@@ -31,7 +34,6 @@ h2{
     background-size: cover;
     height: 500px;
 }
-
 /* Footwear Image */
 #homeImage1{
     background-image: url("images/stock1.jpg");
