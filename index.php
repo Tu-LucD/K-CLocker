@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="KCLocker.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to my page</title>
+    <title>K&C Locker</title>
 </head>
 <body>
     <?php
