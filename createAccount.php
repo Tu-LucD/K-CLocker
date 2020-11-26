@@ -22,3 +22,4 @@
     </div>
 </div>
 <br>
+<p>Already have an account with us?<a href="index.php?page=login"> Sign in</a></p>
