@@ -1,7 +1,7 @@
 <h2>Create an account</h2>
 <div class="container">
     <div class="d-flex justify-content-center">    
-    <form action="verifyLogin.php" name="form1" method="POST" enctype="multipart/form-data">        
+    <form action="createAccount.php" name="createAccountForm" method="POST" enctype="multipart/form-data">        
         <div class="form-group">
         <label for="first_name">First Name:</label>
         <input type="text" class="form-control" placeholder="Enter first name" name="first_name">
@@ -17,9 +17,15 @@
         <input type="password" class="form-control" placeholder="Enter password" name="password">
         </div>
         
-        <button type="submit" name="insert" class="btn btn-info">Create</button>
+        <button type="submit" name="create" class="btn btn-info">Create</button>
     </form>
     </div>
 </div>
 <br>
 <p>Already have an account with us?<a href="index.php?page=login"> Sign in</a></p>
+
+<!-- This part will create and add new user to the DB -->
+<?php
+
+
+?>
