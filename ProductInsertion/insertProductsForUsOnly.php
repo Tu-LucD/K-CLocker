@@ -14,28 +14,28 @@
     <input type="text" class="form-control" id="product_description" placeholder="Enter product_description" name="product_description">
     </div>
     <div class="form-group">
-    <label for="price">Price:</label>
+    <label for="price">Price (dont write $ e.g. 2.99):</label>
     <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
     </div>
     <div class="form-group">
     <label for="sport">Sport:</label>
     <select name="sports" id="sports">
-        <option value="running">running</option>
-        <option value="hockey">hockey</option>
-        <option value="volleyball">volleyball</option>
-        <option value="basketball">basketball</option>
-        <option value="baseball">baseball</option>
-        <option value="badminton">badminton</option>
-        <option value="tennis">tennis</option>
+        <option value="Running">running</option>
+        <option value="Hockey">hockey</option>
+        <option value="Volleyball">volleyball</option>
+        <option value="Basketball">basketball</option>
+        <option value="Baseball">baseball</option>
+        <option value="Badminton">badminton</option>
+        <option value="Tennis">tennis</option>
     </select>
     </div>
     <div class="form-group">
     <label for="category">Category:</label>
     <select name="categories" id="categories">
-        <option value="footwear">footwear</option>
-        <option value="clothing">clothing</option>
-        <option value="accessories">accessories</option>
-        <option value="equipment">equipment</option>
+        <option value="Footwear">footwear</option>
+        <option value="Clothing">clothing</option>
+        <option value="Accessories">accessories</option>
+        <option value="Equipment">equipment</option>
     </select>
     </div>
     <div class="form-group">
@@ -93,12 +93,17 @@ if(isset($_POST["insert"]))
     // $dst1="images/".$tm.$fnm;
     // move_uploaded_file($_FILES["f1"]["tmp_name"],$dst);
 
-    // mysqli_query($link,"insert into product values(NULL,'$_POST[product_name]','$_POST[product_description]','$_POST[price]','$_POST[sport]','$dst1')");
+    mysqli_query($link,"insert into product values(NULL,'$_POST[product_name]','$_POST[product_description]', '$_POST[file]', '$_POST[price]','$_POST[sports]', '$_POST[categories]')");
+        echo $_POST["product_name"];
+        echo $_POST["product_description"];
+        echo $_POST["price"];
+        echo $_POST["categories"];
+        echo $_POST["file"];
         echo $_POST["sports"];
     ?>
     <!-- <script type="text/javascript">
     window.location.href=window.location.href;
-    </script> -->
+    </script> --> 
     <?php
 }
 

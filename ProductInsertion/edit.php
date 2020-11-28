@@ -34,27 +34,43 @@ while($row=mysqli_fetch_array($res))
     <h2>Basic Database Connection</h2>
     <form action="" name="form1" method="post" enctype="multipart/form-data">    
 
-        <img src="<?php echo $image?>" height="100" width="100">    
-        <div class="form-group">
-        <label for="product_name">product_name:</label>
-        <input type="text" class="form-control" id="product_name" placeholder="Enter product_name" name="product_name" value=<?php echo $product_name;?>>
-        </div>
-        <div class="form-group">
-        <label for="product_description">product_description:</label>
-        <input type="text" class="form-control" id="product_description" placeholder="Enter product_description" name="product_description" value=<?php echo $product_description;?>>
-        </div>
-        <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" value=<?php echo $email;?>>
-        </div>
-        <div class="form-group">
-        <label for="contact">Contact:</label>
-        <input type="text" class="form-control" id="contact" placeholder="Enter contact" name="contact" value=<?php echo $contact;?>>
-        </div>
-        <div class="form-group">
-        <label for="contact">Image:</label>
-        <input type="file" class="form-control" name="f1">
-        </div>
+    <div class="form-group">
+    <label for="product_name">Product Name:</label>
+    <input type="text" class="form-control" id="product_name" placeholder="Enter product_name" name="product_name">
+    </div>
+    <div class="form-group">
+    <label for="product_description">Product_description:</label>
+    <input type="text" class="form-control" id="product_description" placeholder="Enter product_description" name="product_description">
+    </div>
+    <div class="form-group">
+    <label for="price">Price (dont write $ e.g. 2.99):</label>
+    <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
+    </div>
+    <div class="form-group">
+    <label for="sport">Sport:</label>
+    <select name="sports" id="sports">
+        <option value="Running">running</option>
+        <option value="Hockey">hockey</option>
+        <option value="Volleyball">volleyball</option>
+        <option value="Basketball">basketball</option>
+        <option value="Baseball">baseball</option>
+        <option value="Badminton">badminton</option>
+        <option value="Tennis">tennis</option>
+    </select>
+    </div>
+    <div class="form-group">
+    <label for="category">Category:</label>
+    <select name="categories" id="categories">
+        <option value="Footwear">footwear</option>
+        <option value="Clothing">clothing</option>
+        <option value="Accessories">accessories</option>
+        <option value="Equipment">equipment</option>
+    </select>
+    </div>
+    <div class="form-group">
+    <label for="sport">Image file name:</label>
+    <input type="text" class="form-control" id="file" placeholder="Enter image file name" name="file">
+    </div>
                 
         <button type="submit" name="update" class="btn btn-default">Update</button>        
     </form>
@@ -82,7 +98,7 @@ while($row=mysqli_fetch_array($res))
         }
         ?>
         <script type="text/javascript">
-        window.location="index.php";
+        window.location="index.php?page=insert";
         </script>
         <?php
     }
