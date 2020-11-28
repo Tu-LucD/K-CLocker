@@ -16,7 +16,7 @@
             $message = "Invalid username or password";
         }
         if(isset($_SESSION['id'])){
-            header("Location: index.php?page=home");
+            
         }
         else{
             echo '<script>alert("Invalid username or password")</script>';
