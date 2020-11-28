@@ -14,6 +14,9 @@
       <li class="nav-item">
         <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
+      </li>
       <?php
         //To do: if statement that check if user is logged in and echos
         //  if logged in: echo username and shopping cart

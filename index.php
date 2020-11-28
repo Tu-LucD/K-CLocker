@@ -35,6 +35,8 @@
                 case 'createAccount':
                     include_once('createAccount.php');
                 break;
+                case 'insert':
+                    include_once('ProductInsertion/insertProductsForUsOnly.php');
                 default:
                     break;
             }

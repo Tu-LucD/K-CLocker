@@ -18,6 +18,7 @@ h2{
 .bg-navy{
     background-color: #1f2833;
 }
+/* Home page--------------------------- */
 .homeTitles{    
     height: 150px;            
     background-color: #C5C6C7;
@@ -34,7 +35,7 @@ h2{
     background-size: cover;
     height: 500px;
 }
-/* Footwear Image */
+/* Running Image */
 #homeImage1{
     background-image: url("images/stock1.jpg");
 }
@@ -61,4 +62,23 @@ h2{
 /* Tennis Image */
 #homeImage7{
     background-image: url("images/stock7.jpg");
+}
+/* Products page-------------------------------- */
+#filterDiv{
+    float: left;
+    width: 20%;
+    border: 1px solid black;
+    display: table-row;
+}
+#filterDiv label{
+    display: table-cell;
+}
+#searchDiv{
+    width: 80%;
+    height: 100px;
+    border: 1px solid black;
+}
+#productsDiv{
+    width: 80%;
+    border: 1px solid black;
 }
