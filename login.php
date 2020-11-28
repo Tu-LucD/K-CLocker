@@ -10,13 +10,13 @@
         $row = mysqli_fetch_array($result);
         if(is_array($row)){
             $_SESSION['id'] = $row["id"];
-            $_SESSION['name'] = $row["name"];
+            $_SESSION['fname'] = $row["fname"];
         }
         else{
             $message = "Invalid username or password";
         }
         if(isset($_SESSION['id'])){
-            
+            header("Location: index.php?page=home");
         }
         else{
             echo '<script>alert("Invalid username or password")</script>';
