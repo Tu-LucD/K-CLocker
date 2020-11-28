@@ -70,8 +70,8 @@ while($row=mysqli_fetch_array($res))
     <div class="form-group">
     <label for="sport">Image file name:</label>
     <input type="text" class="form-control" id="file" placeholder="Enter image file name" name="file">
-    </div>
-                
+    </div>        
+            
         <button type="submit" name="update" class="btn btn-default">Update</button>        
     </form>
     </div>
