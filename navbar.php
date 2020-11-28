@@ -18,12 +18,21 @@
         <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
       </li>
       <?php
+      session_start();
         //To do: if statement that check if user is logged in and echos
         //  if logged in: echo username and shopping cart
         //  else: echo login button
         //  <button type="button" class="btn btn-info">Login</button>
-      ?>
-        <a href="index.php?page=login"><button type="button" class="btn btn-info">Login</button></a>      
+        if(isset($_SESSION['id'])){
+          ?> <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
+             <i class="fa fa-shopping-cart"></i>
+             <a href="logout.php"><button type="button" class="btn btn-info">Logout</button></a>
+             
+        <?php }
+        else{
+          ?> <a href="index.php?page=login"><button type="button" class="btn btn-info">Login</button></a>
+        <?php }
+      ?>  
     </ul>
   </div>
 </nav>

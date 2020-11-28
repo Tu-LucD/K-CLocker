@@ -26,6 +26,6 @@
 
 <!-- This part will create and add new user to the DB -->
 <?php
-
+    
 
 ?>

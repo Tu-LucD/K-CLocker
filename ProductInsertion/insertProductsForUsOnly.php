@@ -32,12 +32,15 @@
     <div class="form-group">
     <label for="category">Category:</label>
     <select name="categories" id="categories">
-        <option value=""></option>
+        <option value="footwear">footwear</option>
+        <option value="clothing">clothing</option>
+        <option value="accessories">accessories</option>
+        <option value="equipment">equipment</option>
     </select>
     </div>
     <div class="form-group">
-    <label for="sport">Image:</label>
-    <input type="file" class="form-control" name="f1">>
+    <label for="sport">Image file name:</label>
+    <input type="text" class="form-control" id="file" placeholder="Enter image file name" name="file">
     </div>
     
     <button type="submit" name="insert" class="btn btn-default">Insert</button>
@@ -74,7 +77,7 @@
             echo "<td>"; ?> <a href="edit.php?id=<?php echo $row["id"];?>"><button type="button" class="btn btn-success">Edit</button></a><?php echo "</td>";
             echo "<td>"; ?> <a href="delete.php?id=<?php echo $row["id"];?>"><button type="button" class="btn btn-danger">Delete</button></a><?php echo "</td>";
             echo "</tr>";
-        }
+        }        
 
         ?>
     </tbody>
