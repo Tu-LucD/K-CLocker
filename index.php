@@ -12,6 +12,7 @@
 </head>
 <body>
     <?php
+    session_start();
         include_once('navbar.php');        
         if(isset($_GET['page'])){
             $page = $_GET['page'];
@@ -41,6 +42,9 @@
                 break;
                 case 'dashboard':
                     include_once('dashboard.php');
+                break;
+                case 'confirm':
+                    include_once('feedbackConfirmed.php');
                 break;
                 default:
                     break;
