@@ -70,7 +70,7 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `account_id` int(11) NOT NULL,
   `order_date` date NOT NULL,
-  `order_price` decimal(10,0) NOT NULL,
+  `order_price` decimal(10,2) NOT NULL,
   `order_shipping` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -85,7 +85,7 @@ CREATE TABLE `order_items` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `order_item_quantity` int(11) NOT NULL,
-  `order_item_price` decimal(10,0) NOT NULL
+  `order_item_price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -99,7 +99,7 @@ CREATE TABLE `product` (
   `product_name` varchar(30) NOT NULL,
   `product_description` varchar(200) NOT NULL,
   `product_image` varchar(30) NOT NULL,
-  `price` decimal(10,0) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `sport` varchar(30) NOT NULL,
   `category` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
