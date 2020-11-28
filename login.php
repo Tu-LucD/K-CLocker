@@ -11,6 +11,10 @@
         if(is_array($row)){
             $_SESSION['id'] = $row["id"];
             $_SESSION['fname'] = $row["fname"];
+            $_SESSION['lname'] = $row['lname'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['password'] = $row['password'];
         }
         else{
             $message = "Invalid username or password";

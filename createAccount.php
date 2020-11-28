@@ -26,6 +26,24 @@
 
 <!-- This part will create and add new user to the DB -->
 <?php
-    
+    include('dbConnection.php');
+    session_start();
+    if(isset($_POST['create'])){
+        
+        mysqli_query($link, "INSERT INTO account values(NULL, '$_POST[first_name]', '$_POST[last_name]', '$_POST[email]', 0, '$_POST[username]', '$_POST[password]')");
+
+        $sql = "SELECT * FROM account WHERE username = '".$_POST["username"]."' and password = '".$_POST["password"]."'";
+        $result = mysqli_query($link, $sql);
+        $row = mysqli_fetch_array($result);
+        if(is_array($row)){
+            $_SESSION['id'] = $row["id"];
+            $_SESSION['fname'] = $row["fname"];
+            $_SESSION['lname'] = $row['lname'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['password'] = $row['password'];
+        }
+        header("Location: index.php?page=dashboard");
+    }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-include('connection.php');
+include('dbConnection.php');
 $id=$_GET["id"];
 
 $product_name="";

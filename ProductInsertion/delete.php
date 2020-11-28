@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+include "dbConnection.php";
 $id=$_GET["id"];
 mysqli_query($link, "delete from product where id=$id");
 ?>

@@ -19,10 +19,7 @@
       </li>
       <?php
       session_start();
-        //To do: if statement that check if user is logged in and echos
-        //  if logged in: echo username and shopping cart
-        //  else: echo login button
-        //  <button type="button" class="btn btn-info">Login</button>
+        /* The navbar options change if the user is logged in or not */
         if(isset($_SESSION['id'])){
           ?> <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
              <i class="fa fa-shopping-cart"></i>
