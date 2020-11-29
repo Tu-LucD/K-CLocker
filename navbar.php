@@ -18,6 +18,7 @@
         <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
       </li>
       <?php
+      session_start();
         /* The navbar options change if the user is logged in or not */
         if(isset($_SESSION['id'])){
           ?> <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>

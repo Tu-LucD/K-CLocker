@@ -12,7 +12,6 @@
 </head>
 <body>
     <?php
-    session_start();
         include_once('navbar.php');        
         if(isset($_GET['page'])){
             $page = $_GET['page'];
