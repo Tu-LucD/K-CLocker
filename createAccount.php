@@ -27,7 +27,6 @@
 <!-- This part will create and add new user to the DB -->
 <?php
     include('dbConnection.php');
-    session_start();
     if(isset($_POST['create'])){
         
         mysqli_query($link, "INSERT INTO account values(NULL, '$_POST[first_name]', '$_POST[last_name]', '$_POST[email]', 0, '$_POST[username]', '$_POST[password]')");
