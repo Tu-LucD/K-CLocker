@@ -67,12 +67,39 @@
     </form>
 </div>
 <div id="searchDiv">
-    
+    <div id="filterList">
+        <?php
+            //make filters appear after they apply filters
+        ?>
+    </div>
+    <div id="searchBar">      
+        <form action="" method="post">  
+            <input type="text" name="searchProduct">
+            <input type="submit" name="search" value="Search">
+        </form>
+    </div>    
 </div>
 <div id="productsDiv">
-    <table>
+    <table id="productTable">
     <?php
         include('dbConnection.php');
+        function createProductBox($row){
+            echo "<td>";
+            ?><img src="<?php echo $row["product_image"]?>" alt="Product Image">
+            <?php echo "<br>";
+            echo $row["product_name"]; ?> <a href="productDetails.php?id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
+            <?php echo "</td>";
+        }
+        function fillProductTable($res){
+            $counter = 1;
+            while($row = mysqli_fetch_array($res))
+            {
+                if($counter==1 or $counter % 3 == 0)
+                {
+                    echo "</tr>";
+                }
+            }
+        }
         if(isset($_POST["apply"]))
         {
             $category = $_POST["filterCategory"][0];
@@ -81,6 +108,10 @@
         if(isset($_POST["reset"]))
         {
             //select all and echo the table        
+        }
+        if(isset($_POST["search"]))
+        {
+            echo "haha";
         }
     ?>
     </table>
