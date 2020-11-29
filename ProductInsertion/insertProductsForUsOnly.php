@@ -1,6 +1,3 @@
-<?php
-    include('dbConnection.php');
-?>
 <div class="container">
 <div class="col-lg-4">
 <h2>Insert</h2>

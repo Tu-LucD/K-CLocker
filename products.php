@@ -1,6 +1,3 @@
-<?php
-    require('dbConnection.php');
-?>
 <h2>This is the products page</h2>
 <div id="filterDiv">
     <form action="" method="post">
