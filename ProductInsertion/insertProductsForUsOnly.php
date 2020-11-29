@@ -60,6 +60,7 @@
         <th>product_description</th>
         <th>price</th>
         <th>sport</th>
+        <th>category</th>
     </tr>
     </thead>
     <tbody>
@@ -75,6 +76,7 @@
             echo "<td>"; echo $row["product_description"]; echo "</td>";
             echo "<td>"; echo $row["price"]; echo "</td>";
             echo "<td>"; echo $row["sport"]; echo "</td>";
+            echo "<td>"; echo $row["category"]; echo "</td>";
             echo "<td>"; ?> <a href="edit.php?id=<?php echo $row["id"];?>"><button type="button" class="btn btn-success">Edit</button></a><?php echo "</td>";
             echo "<td>"; ?> <a href="delete.php?id=<?php echo $row["id"];?>"><button type="button" class="btn btn-danger">Delete</button></a><?php echo "</td>";
             echo "</tr>";

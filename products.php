@@ -66,7 +66,9 @@
         </table>                                    
     </form>
 </div>
-<div id="searchDiv">haha</div>
+<div id="searchDiv">
+    
+</div>
 <div id="productsDiv">
     <table>
     <?php
