@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 <?php
     require('dbConnection.php');
 ?>
-=======
->>>>>>> dd74bac78ea18adea1bcaf9cf39b9e4fe7792ce0
 <div class="container">
 <div class="col-lg-4">
 <h2>Insert</h2>
