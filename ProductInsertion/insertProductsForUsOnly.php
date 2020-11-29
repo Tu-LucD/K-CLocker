@@ -1,5 +1,5 @@
 <?php
-    include('dbConnection.php');
+    require('dbConnection.php');
 ?>
 <div class="container">
 <div class="col-lg-4">
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
     <label for="product_description">Product_description:</label>
-    <input type="text" class="form-control" id="product_description" placeholder="Enter product_description" name="product_description">
+    <textarea type="text" class="form-control" id="product_description" placeholder="Enter product_description" name="product_description"></textarea>
     </div>
     <div class="form-group">
     <label for="price">Price (dont write $ e.g. 2.99):</label>
@@ -69,7 +69,7 @@
         {
             echo "<tr>";
             echo "<td>"; echo $row["id"]; echo "</td>";
-            echo "<td>"; ?> <img src="<?php echo $row["image"]?>" height="100" width="100"><?php echo "</td>";
+            echo "<td>"; ?> <img src="<?php echo $row['product_image']?>" height="100" width="100"><?php echo "</td>";
             echo "<td>"; echo $row["product_name"]; echo "</td>";
             echo "<td>"; echo $row["product_description"]; echo "</td>";
             echo "<td>"; echo $row["price"]; echo "</td>";

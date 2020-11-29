@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2020 at 06:22 PM
+-- Generation Time: Nov 29, 2020 at 04:17 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -36,6 +36,14 @@ CREATE TABLE `account` (
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `password`) VALUES
+(1, 'James', 'Cortez', 'jamescortez91@gmail.com', 0, 'james', 'polo'),
+(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo');
 
 -- --------------------------------------------------------
 
@@ -96,13 +104,24 @@ CREATE TABLE `order_items` (
 
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
-  `product_name` varchar(30) NOT NULL,
-  `product_description` varchar(200) NOT NULL,
-  `product_image` varchar(30) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `product_description` varchar(1000) NOT NULL,
+  `product_image` varchar(50) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `sport` varchar(30) NOT NULL,
   `category` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `product_name`, `product_description`, `product_image`, `price`, `sport`, `category`) VALUES
+(1, 'Adidas NMD_R1 Shoes', 'Run with it. These adidas NMD_R1 Shoes are a little technical and a lot street smart. Their midsole plugs flash back to the \'80s, but the knit upper, full-length cushioned midsole and EVA inserts are 100 percent fashion forward.', 'images/product1.jpg', '170.00', 'running', 'footwear'),
+(2, 'CCM Jetspeed Pro Grip Hockey Stick', 'The CCM Jetspeed Pro Senior Hockey Stick is a great option no matter what position you play because of the hybrid kickpoint that delivers powerful slap shots and accurate quick release wrist shots. The Jetspeed Shaft offers a smooth transition area to maximize bending and transfer energy from the blade to the puck - to the back of the net.', 'images/product2.jpg', '99.99', 'Hockey', 'Equipment'),
+(3, 'Wilson Advantage Adult L3 Tennis Racquet ', 'Wilson Advantage Adult L3 Tennis Racquet is extra long for extended reach, has an extra-large head for greater power on the court, and a V-Matrix technology for a larger sweet spot.', 'images/product3.jpg', '25.99', 'Tennis', 'Equipment'),
+(4, 'Adidas Pro Model 2G Shoes', 'These Adidas shoes deliver a lightweight and flexible fit to keep you comfortable for all-day play. Lace up in foot support designed for everyday hoops.', 'images/product4.jpg', '130.00', 'Basketball', 'Footwear'),
+(5, 'Mavis 350 - Nylon Shuttlecocks (Pack of 6) ', 'The Yonex Mavis 350 nylon shuttlecocks are designed to have a similar flight time as a feather shuttlecock. They give an accurate and durable performance so you can enjoy the play, game after game.', 'images/product5.jpg', '14.44', 'Badminton', 'Equipment');
 
 --
 -- Indexes for dumped tables
@@ -146,13 +165,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -170,7 +189,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
