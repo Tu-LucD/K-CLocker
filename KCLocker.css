@@ -67,16 +67,31 @@ h2{
 #filterDiv{
     float: left;
     width: 20%;
-    border: 1px solid black;
-    display: table-row;
+    border: 1px solid black;    
 }
-#filterDiv label{
-    display: table-cell;
+#filterDiv table{
+    width: 100%;    
+}
+#filterDiv td:nth-child(2){
+    text-align: left;
+}
+#filterDiv td:nth-child(1){    
+    width: 45%;
+    text-align: right;       
+}
+#filterDiv th{
+    padding-top: 20px;
+}
+#filterDiv input[type=submit]{
+    background-color: #45A29E;
+    border: 1px #45A29E;
+    color: white;
 }
 #searchDiv{
     width: 80%;
     height: 100px;
     border: 1px solid black;
+    float: right;
 }
 #productsDiv{
     width: 80%;

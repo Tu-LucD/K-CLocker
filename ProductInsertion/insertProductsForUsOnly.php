@@ -61,6 +61,7 @@
     </thead>
     <tbody>
         <?php
+        include('dbConnection.php');
         $res = mysqli_query($link,"select * from product");
         while($row = mysqli_fetch_array($res))
         {
@@ -82,6 +83,7 @@
 </div>
 
 <?php
+include('dbConnection.php');
 if(isset($_POST["insert"]))
 {
     // $tm=md5(time());
@@ -90,7 +92,7 @@ if(isset($_POST["insert"]))
     // $dst1="images/".$tm.$fnm;
     // move_uploaded_file($_FILES["f1"]["tmp_name"],$dst);
 
-    mysqli_query($link,"insert into product values(NULL,'$_POST[product_name]','$_POST[product_description]', '$_POST[file]', '$_POST[price]','$_POST[sports]', '$_POST[categories]')");
+    mysqli_query($link,"INSERT INTO product values(NULL,'$_POST[product_name]','$_POST[product_description]', '$_POST[file]', '$_POST[price]','$_POST[sports]', '$_POST[categories]')");
         echo $_POST["product_name"];
         echo $_POST["product_description"];
         echo $_POST["price"];
