@@ -13,6 +13,7 @@
             $_SESSION['fname'] = $row["fname"];
             $_SESSION['lname'] = $row['lname'];
             $_SESSION['email'] = $row['email'];
+            $_SESSION['admin'] = $row['admin'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['password'] = $row['password'];
         }

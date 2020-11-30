@@ -5,31 +5,69 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" style="color: white;" href="index.php?page=about">About</a>
-      </li>      
-      <li class="nav-item">
-        <a class="nav-link" style="color: white;" href="index.php?page=products">Products</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
-      </li>
-      <?php
-      session_start();
-        /* The navbar options change if the user is logged in or not */
-        if(isset($_SESSION['id'])){
-          ?> <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
+    <?php
+    session_start();
+
+    /* Checks first if the user is signed in */
+      if(isset($_SESSION['id'])){
+
+        /* If the user is signed it, checks if user is an admin */
+        if($_SESSION['admin'] == 1){ ?>
+            <li class="nav-item">
+              <a class="nav-link" style="color: white;" href="index.php?page=accounts">Accounts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: white;" href="index.php?page=editProducts">Edit Products</a>
+            </li>
+            <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
+            <li class="nav-item">
+              <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
+          </li>
+            <a href="logout.php"><button type="button" class="btn btn-info">Logout</button></a>
+        <?php } 
+
+        /** Else if user is not admin, shows these options */
+        else if($_SESSION['admin'] == 0) { ?>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=about">About</a>
+          </li>      
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
+          </li>
+          <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
              <i class="fa fa-shopping-cart"></i>
              <a href="logout.php"><button type="button" class="btn btn-info">Logout</button></a>
-             
-        <?php }
-        else{
-          ?> <a href="index.php?page=login"><button type="button" class="btn btn-info">Login</button></a>
-        <?php }
-      ?>  
+      <?php }
+        
+      }
+
+      /** If the user is not signed in, show these options */
+      else{
+        ?> 
+        <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=about">About</a>
+          </li>      
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
+          </li>
+          <a href="index.php?page=login"><button type="button" class="btn btn-info">Login</button></a>
+      <?php }
+      
+    ?>
+      
+      
     </ul>
   </div>
 </nav>
