@@ -3,48 +3,48 @@
         <table>            
             <tr><th colspan=2><h4>Sport</h4></th></tr>
             <tr>
-                <td><input type="radio" name="filterSport[]" value="running"></td>
+                <td><input type="radio" name="filterSport[]" value="Running"></td>
                 <td>Running</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterSport[]" value="hockey"></td>
+                <td><input type="radio" name="filterSport[]" value="Hockey"></td>
                 <td>Hockey</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterSport[]" value="volleyball"></td>
+                <td><input type="radio" name="filterSport[]" value="Volleyball"></td>
                 <td>Volleyball</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterSport[]" value="basketball"></td>
+                <td><input type="radio" name="filterSport[]" value="Basketball"></td>
                 <td>Basketball</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterSport[]" value="baseball"></td>
+                <td><input type="radio" name="filterSport[]" value="Baseball"></td>
                 <td>Baseball</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterSport[]" value="badminton"></td>
+                <td><input type="radio" name="filterSport[]" value="Badminton"></td>
                 <td>Badminton</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterSport[]" value="tennis"></td>
+                <td><input type="radio" name="filterSport[]" value="Tennis"></td>
                 <td>Tennis</td>
             </tr>
             <tr><th colspan=2><h4>Category</h4></th></tr>
             <tr>
-                <td><input type="radio" name="filterCategory[]" value="footwear"></td>
+                <td><input type="radio" name="filterCategory[]" value="Footwear"></td>
                 <td>Footwear</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterCategory[]" value="clothing"></td>
+                <td><input type="radio" name="filterCategory[]" value="Clothing"></td>
                 <td>Clothing</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterCategory[]" value="accessories"></td>
+                <td><input type="radio" name="filterCategory[]" value="Accessories"></td>
                 <td>Accessories</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterCategory[]" value="equipment"></td>
+                <td><input type="radio" name="filterCategory[]" value="Equipment"></td>
                 <td>Equipment</td>
             </tr>
             <tr><th colspan=2><h4>Price Range</h4></th></tr>
@@ -107,8 +107,13 @@
         fillProductTable($res);
         if(isset($_POST["apply"]))
         {
-            $category = $_POST["filterCategory"][0];
-            echo $category;
+            if(isset($_POST["filterCategory"]))
+            {
+                $category = $_POST["filterCategory"][0];
+                $res = mysqli_query($link,"select * from product where category = $category");
+                fillProductTable($res);
+            }            
+            else echo "haha";
         }
         if(isset($_POST["reset"]))
         {
