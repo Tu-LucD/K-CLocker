@@ -114,6 +114,18 @@ h2{
 #productsDiv{
     margin-left: 20%;
     margin-top: 80px;
-    width: 80%;
-    border: 1px solid black;
+    width: 80%;    
+}
+#productsDiv table{
+    width: 100%;
+}
+.productBox{
+    width: 200px;
+    height: 300px;    
+    position: relative;    
+}
+.productPreview{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }

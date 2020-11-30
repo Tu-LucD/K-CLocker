@@ -80,26 +80,31 @@
     </div>    
 </div>
 <div id="productsDiv">
-    <table id="productTable">
+    <table>
     <?php
         include('dbConnection.php');
         function createProductBox($row){
-            echo "<td>";
-            ?><img src="<?php echo $row["product_image"]?>" alt="Product Image">
+            echo "<td class='productBox'>";
+            ?><img class="productPreview" src="<?php echo $row["product_image"]?>" alt="Product Image">
             <?php echo "<br>";
-            echo $row["product_name"]; ?> <a href="productDetails.php?id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
+            ?><p><?php echo $row["product_name"]?></p> <a href="productDetails.php?id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
             <?php echo "</td>";
         }
         function fillProductTable($res){
             $counter = 1;
+            echo "<tr>";
             while($row = mysqli_fetch_array($res))
             {
-                if($counter==1 or $counter % 3 == 0)
+                createProductBox($row);
+                if($counter % 3 == 0)
                 {
                     echo "</tr>";
                 }
+                $counter++;
             }
         }
+        $res = mysqli_query($link,"select * from product");
+        fillProductTable($res);
         if(isset($_POST["apply"]))
         {
             $category = $_POST["filterCategory"][0];
