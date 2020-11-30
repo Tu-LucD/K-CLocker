@@ -83,13 +83,17 @@
     <table>
     <?php
         include('dbConnection.php');
+
+        //Takes a sql query to make a product box
         function createProductBox($row){
             echo "<td class='productBox'>";
             ?><img class="productPreview" src="<?php echo $row["product_image"]?>" alt="Product Image">
             <?php echo "<br>";
-            ?><p><?php echo $row["product_name"]?></p> <a href="productDetails.php?id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
+            ?><p><?php echo $row["product_name"]?></p> <a href="index.php?page=productDetails&id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
             <?php echo "</td>";
         }
+
+        //Takes result of sql query to make rows of products
         function fillProductTable($res){
             $counter = 1;
             echo "<tr>";
@@ -103,22 +107,29 @@
                 $counter++;
             }
         }
+        //Fills table upon opening the product page
         $res = mysqli_query($link,"select * from product");
         fillProductTable($res);
+        
+        //Triggers if "Apply Filter" button is clicked
         if(isset($_POST["apply"]))
         {
             if(isset($_POST["filterCategory"]))
             {
                 $category = $_POST["filterCategory"][0];
-                $res = mysqli_query($link,"select * from product where category = $category");
-                fillProductTable($res);
+                $res = mysqli_query($link,"select * from product where category=$category");
+                fillProductTable($res);                
             }            
             else echo "haha";
         }
+
+        //Triggers if "Reset Filter" button is clicked
         if(isset($_POST["reset"]))
         {
             //select all and echo the table        
         }
+
+        //Triggers if "Search" button is clicked
         if(isset($_POST["search"]))
         {
             echo "haha";

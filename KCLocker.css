@@ -133,3 +133,38 @@ h2{
     transition: 0.25s;
     background-color: #1f2833;
 }
+
+/* Product Details Page */
+#pdDetailsContainer{
+    height: 500px;
+    width: 75%;
+    margin: auto;
+}
+#productDetailImgDiv{
+    height: 100%;
+    width: 51%;
+    border: 1px red solid;
+    margin-bottom: 30px;    
+    background-color: #fff;
+    float: left;
+}
+#productDetailImgDiv img{
+    height: 100%;
+}
+#productPurchasingInfo{
+    position: relative;
+    height:100%;
+    width:30%;    
+    border: 1px solid green;
+    float:right;    
+}
+#productPurchasingInfo a{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+#productDetails{
+    clear: both;
+    width: 100%;
+    border-top: 5px solid #45A29E;
+}

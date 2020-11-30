@@ -45,6 +45,9 @@
                 case 'confirm':
                     include_once('feedbackConfirmed.php');
                 break;
+                case 'productDetails':                    
+                    include_once("productDetails.php");
+                break;
                 default:
                     break;
             }

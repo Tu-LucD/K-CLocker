@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2020 at 11:29 PM
+-- Generation Time: Nov 30, 2020 at 01:38 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -43,7 +43,9 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `password`) VALUES
 (1, 'James', 'Cortez', 'jamescortez91@gmail.com', 0, 'james', 'polo'),
-(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo');
+(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo'),
+(3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'SumyonguyClient', 'pokemon828'),
+(4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'SumyonguyAdmin', 'pokemon828');
 
 -- --------------------------------------------------------
 
@@ -169,7 +171,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -193,7 +195,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
