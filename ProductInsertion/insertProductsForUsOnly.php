@@ -43,7 +43,7 @@
     <input type="text" class="form-control" id="file" placeholder="Enter image file name" name="file">
     </div>
     
-    <button type="submit" name="insert" class="btn btn-default">Insert</button>
+    <button style="color:red" type="submit" name="insert" class="btn btn-default">Insert</button>
     <button type="submit" name="update" class="btn btn-default">Update</button>
     <button type="submit" name="delete"class="btn btn-default">Delete</button>
 </form>

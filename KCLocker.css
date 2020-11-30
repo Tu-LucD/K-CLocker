@@ -177,8 +177,8 @@ h2{
 #productPurchasingInfo p{
     font-size: 30px;
 }
-#productDetails{    
-    width: 80%;    
+#productDetails{
+    width: 60%;    
     margin: auto;    
     text-align: left;
 }
@@ -188,4 +188,5 @@ h2{
 #productDetails p{
     margin-left: 3%;
     margin-bottom: 30px;
+    font-family: sans-serif;
 }

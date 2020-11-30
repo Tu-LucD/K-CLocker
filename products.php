@@ -108,7 +108,7 @@
             }
         }
         //Fills table upon opening the product page
-        $res = mysqli_query($link,"select * from product");
+        $res = mysqli_query($link,"select * from product order by product_name");
         fillProductTable($res);
         
         //Triggers if "Apply Filter" button is clicked
