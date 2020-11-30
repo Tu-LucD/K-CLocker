@@ -20,14 +20,21 @@
         $category=$row["category"];
     }    
 ?>
+<a id="goBackToProduct" href="index.php?page=products"><i class="fa fa-arrow-left"></i>Go back to Products</a>
 <div id="pdDetailsContainer">
     <div id="productDetailImgDiv"><img src="<?php echo $imageUrl?>" alt=""></div>
     <div id="productPurchasingInfo">
         <h2><?php echo $name?></h2>
-        <p><h4>Price:</h4>
-        <?php echo $price ?></p>
-        
+        <h4>Price:</h4>
+        <p>$<?php echo $price ?></p>        
         <a href="index.php?page=products"><button type="button" class="btn btn-info">Add to Cart</button></a>
     </div>
 </div>
-<div id="productDetails"></div>
+<div id="productDetails">
+    <h3>Description</h3>
+    <p><?php echo $description ?></p>
+    <h3>Sport</h3>
+    <p><?php echo $sport ?></p>
+    <h3>Category</h3>
+    <p><?php echo $category ?></p>    
+</div>
