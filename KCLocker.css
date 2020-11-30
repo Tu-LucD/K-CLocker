@@ -139,6 +139,7 @@ h2{
     height: 500px;
     width: 75%;
     margin: auto;
+    margin-top: 20px;
 }
 #productDetailImgDiv{
     height: 100%;
@@ -162,6 +163,9 @@ h2{
     position: absolute;
     bottom: 30px;
     right: 30px;
+}
+#productPurchasingInfo p{
+    font-size: 30px;
 }
 #productDetails{
     clear: both;

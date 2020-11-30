@@ -24,6 +24,9 @@
     <div id="productDetailImgDiv"><img src="<?php echo $imageUrl?>" alt=""></div>
     <div id="productPurchasingInfo">
         <h2><?php echo $name?></h2>
+        <p><h4>Price:</h4>
+        <?php echo $price ?></p>
+        
         <a href="index.php?page=products"><button type="button" class="btn btn-info">Add to Cart</button></a>
     </div>
 </div>
