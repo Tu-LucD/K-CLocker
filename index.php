@@ -47,6 +47,11 @@
                 break;
                 case 'productDetails':                    
                     include_once("productDetails.php");
+                case 'editProducts':
+                    include_once('editProducts.php');
+                break;
+                case 'accounts':
+                    include_once('accounts.php');
                 break;
                 default:
                     break;
