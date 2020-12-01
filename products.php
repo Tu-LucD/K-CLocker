@@ -67,12 +67,11 @@
     </form>
 </div>
 <div id="searchDiv">
-    <div id="filterList">
-        Filters
+    <!-- <div id="filterList">        
         <?php
             //make filters appear after they apply filters
         ?>
-    </div>
+    </div> -->
     <div id="searchBar">      
         <form action="" method="post">  
             <input type="text" name="searchProduct">
@@ -96,17 +95,21 @@
 
         //Takes result of sql query to make rows of products
         function fillProductTable($res){
-            $counter = 1;
-            echo "<tr>";
-            while($row = mysqli_fetch_array($res))
+            if(mysqli_fetch_array($res) == null) echo "<h3>No products matching the description was found.</h3>";
+            else
             {
-                createProductBox($row);
-                if($counter % 3 == 0)
+                $counter = 1;
+                echo "<tr>";
+                while($row = mysqli_fetch_array($res))
                 {
-                    echo "</tr>";
+                    createProductBox($row);
+                    if($counter % 3 == 0)
+                    {
+                        echo "</tr>";
+                    }
+                    $counter++;
                 }
-                $counter++;
-            }
+            }                                    
         }
 
         //Fills table upon opening the product page        
@@ -163,7 +166,7 @@
                     else $filteredQuery = $sportQuery." intersect ".$categoryQuery;
                 }
                 else $filteredQuery = $categoryQuery." intersect ".$sportQuery." intersect ".$priceQuery;
-                
+
                 $res = mysqli_query($link,$filteredQuery." order by product_name");
                 fillProductTable($res);
             }
