@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2020 at 12:51 AM
+-- Generation Time: Dec 01, 2020 at 10:02 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -43,7 +43,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `password`) VALUES
 (1, 'James', 'Cortez', 'jamescortez91@gmail.com', 0, 'james', 'polo'),
-(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 1, 'Jamez', 'polo'),
+(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo'),
 (3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'SumyonguyClient', 'pokemon828'),
 (4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'SumyonguyAdmin', 'pokemon828');
 
@@ -148,7 +148,17 @@ INSERT INTO `product` (`id`, `product_name`, `product_description`, `product_ima
 (27, 'Nike Air Zoom Pegasus 37 Premium', 'Reinvigorate your stride with the Nike Air Zoom Pegasus 37 Premium. Delivering the same fit and feel that runners love, the shoe has an all-new forefoot cushioning unit and foam for maximum responsiveness. Eye-popping colours and bold shapes deliver a new spin on your favourite. The result is a durable, lightweight trainer designed for everyday running.', 'images/product27.jpg', '160.00', 'Running', 'Footwear'),
 (28, 'Nike Air Zoom Pegasus 37 FlyEase', '37 years and millions of miles later, the legend lives on in the Nike Air Zoom Pegasus 37 FlyEase. Our most trusted running shoe flies into the future with Zoom Air specially tuned to your needs, and a FlyEase entry system that gets you in quickly and easily.', 'images/product28.jpg', '155.00', 'Running', 'Footwear'),
 (29, 'Nike 22 oz Large Bottle Belt- Black', 'Stay hydrated throughout your run with the Nike Large 22 .Oz - bottle belt. The form-fitting shape and stabilised design curves to your body and reduces bounce as you work out. With a conveniently angled pocket, the bottle is easy to reach while a secure zip pocket stores any small items you need.', 'images/product29.jpg', '26.24', 'Running', 'Accessories'),
-(30, 'Nike Air Zoom Tempo Next% FlyEase', 'The ultra-responsive Nike Air Zoom Tempo Next% FlyEase is designed to help you get the most from your training runs, so you can go confidently into your next (or first) race. It has a step-in entry and an internal lacing mechanism you operate with one hand. Pull one loop to tighten, another to release.', 'images/product30.jpg', '260.00', 'Running', 'Footwear');
+(30, 'Nike Air Zoom Tempo Next% FlyEase', 'The ultra-responsive Nike Air Zoom Tempo Next% FlyEase is designed to help you get the most from your training runs, so you can go confidently into your next (or first) race. It has a step-in entry and an internal lacing mechanism you operate with one hand. Pull one loop to tighten, another to release.', 'images/product30.jpg', '260.00', 'Running', 'Footwear'),
+(31, 'Nike Joyride Nova', 'The Nike Joyride Nova has a comfortable slip-on design with cushioning pods you can see and feel. Small beads in the pods contour to your foot like a beanbag chair, for comfort like you\'ve never felt.', 'images/product31.jpg', '84.99', 'Running', 'Footwear'),
+(32, 'Nike React Miler Shield', 'Stick to your route in less-than-ideal conditions. The Nike React Miler delivers trusted stability for your wet-weather miles. Its tyre-inspired outsole gives you the traction you need to keep pace on slick roads. Water-repellent details around the upper help keep your foot dry.', 'images/product32.jpg', '180.00', 'Running', 'Footwear'),
+(33, 'Adidas Ultraboost DNA Montreal Shoes', 'From a lunchtime 5K to a long Saturday loop, these adidas Ultraboost DNA Montreal running shoes fit your life and your style. They have a stretchy knit upper that adapts to the shape of your foot as you run, for comfort and support. Responsive cushioning keeps your stride energized.', 'images/product33.jpg', '250.00', 'Running', 'Footwear'),
+(34, 'Adidas X90004D Shoes', 'As high tech as your life. These adidas X90004D Shoes are designed for the fast pace and high energy of our hyperconnected world. The distinctive lattice midsole was crafted from liquid resin to give you precisely tuned cushioning that keeps you comfortable while running or gaming with friends. Floating triangles and supportive underlays give the stretchy knit upper a bold and futuristic look.', 'images/product34.jpg', '275.00', 'Running', 'Footwear'),
+(35, 'Adidas Galaxy 5 Shoes', 'Make the most out of your runs. No matter how far you go, these adidas shoes cushion every take-off and landing to make each step feel like a good one. Another block. Another lap. Another mile. Get after it.', 'images/product35.jpg', '90.00', 'Running', 'Footwear'),
+(36, 'Adidas Climacool Vento Shoes', 'Don\'t forgo your day just because of the heat. Keep your routine on track in these adidas Climacool Vento Shoes. They have a breathable upper and responsive cushioning that keep you looking and feeling fresh.', 'images/product36.jpg', '180.00', 'Running', 'Footwear'),
+(37, 'Adidas Edge XT SUMMER.RDY Shoes', 'Because your speed training can\'t wait for cooler weather. These adidas running shoes have a breathable textile upper and built-in ventilation for a breezy feel in the heat. Midfoot stability means you feel sure-footed, any way you turn.', 'images/product 37.jpg', '90.00', 'Running', 'Footwear'),
+(38, 'DeMarini CF 2¾\' USSSA Bat 2020 (-10)', 'Developed for the well-rounded player that needs the perfect combination of speed, power, and barrel control, the 2020 DeMarini® CF® USSSA Bat is outfitted with high-performing materials to elevate your game to its apex. Utilizing the power of ParaFlex™ Plus Composite in the handle and barrel, this two-piece, -10 model offers a massive sweet spot and maximizes the transfer of energy straight to the barrel to drive pitches with force.', 'images/product38.jpg', '299.99', 'Baseball', 'Equipment'),
+(39, 'Louisville Slugger Prime BBCOR Bat 2020 (-3)', 'Engineered with advanced composite material, the 2020 Louisville Slugger® Prime® BBCOR Bat has been fully optimized to drive through the zone with exceptional speed and power at the plate this season. This three-piece model utilizes a patented VCX™ Vibration Control Connection System, allowing the handle and barrel to move independently upon contact to better control vibration and provide unmatched feel.', 'images/product39.jpg', '349.99', 'Baseball', 'Equipment'),
+(40, 'Rawlings Quatro Pro USA Youth Bat 2020 (-12)', 'Get more pop, more distance and a lighter, faster swing speed with the 2019 Rawlings® Quatro™ Pro USA Bat. Introducing the second generation for the Youth Quatro™ Pro, this -12 composite model has a more forgiving swing weight for every player in the lineup, and features a suspended inner barrel to balance impact and velocity through the zone.', 'images/product40.jpg', '249.99', 'Baseball', 'Equipment');
 
 --
 -- Indexes for dumped tables
@@ -216,7 +226,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
