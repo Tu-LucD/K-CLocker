@@ -5,7 +5,7 @@
         <form action="contact.php" name="feedbackForm" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                 <label for="text">Your Feedback:</label>
-                <textarea name="text" placeholder="Type here" class="form-control" id="" cols="50" rows="10"></textarea><br>
+                <textarea name="text" placeholder="Type here" class="form-control" id="" cols="50" rows="5"></textarea><br>
                 <button type="submit" name="sendFeedback" class="btn btn-info">Send</button>
             </form>
         </div>
