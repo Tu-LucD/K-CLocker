@@ -14,15 +14,16 @@
         /* If the user is signed it, checks if user is an admin */
         if($_SESSION['admin'] == 1){ ?>
             <li class="nav-item">
-              <a class="nav-link" style="color: white;" href="index.php?page=accounts">Accounts</a>
+              <a class="nav-link" style="color: white;" href="index.php?page=accounts">Manage Accounts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color: white;" href="index.php?page=editProducts">Edit Products</a>
+              <a class="nav-link" style="color: white;" href="index.php?page=editProducts">Manage Products</a>
             </li>
-            <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
             <li class="nav-item">
               <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
           </li>
+            <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
+            
             <a href="logout.php"><button type="button" class="btn btn-info">Logout</button></a>
         <?php } 
 

@@ -43,7 +43,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `password`) VALUES
 (1, 'James', 'Cortez', 'jamescortez91@gmail.com', 0, 'james', 'polo'),
-(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo'),
+(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 1, 'Jamez', 'polo'),
 (3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'SumyonguyClient', 'pokemon828'),
 (4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'SumyonguyAdmin', 'pokemon828');
 
