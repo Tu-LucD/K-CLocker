@@ -108,8 +108,8 @@ h2{
     color: white;
 }
 #filterList{
-    bottom: 10px;
-    left: 20px;
+    bottom: 100px;
+    left: 20px;    
 }
 #productsDiv{
     margin-left: 20%;
@@ -123,6 +123,7 @@ h2{
     width: 200px;
     height: 300px;    
     position: relative;    
+    padding-top: 10px;
 }
 .productPreview{
     width: 200px;

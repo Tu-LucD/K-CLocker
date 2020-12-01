@@ -49,15 +49,15 @@
             </tr>
             <tr><th colspan=2><h4>Price Range</h4></th></tr>
             <tr>
-                <td><input type="radio" name="filterPrice[]" value="0+"></td>
+                <td><input type="radio" name="filterPrice[]" value="$0-$99.99"></td>
                 <td>0$ - 100$</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterPrice[]" value="100+"></td>
+                <td><input type="radio" name="filterPrice[]" value="$100-$199.99"></td>
                 <td>100$ - 200$</td>
             </tr>
             <tr>
-                <td><input type="radio" name="filterPrice[]" value="200+"></td>
+                <td><input type="radio" name="filterPrice[]" value="$200+"></td>
                 <td>200$ +</td>
             </tr>
             <tr>
@@ -68,6 +68,7 @@
 </div>
 <div id="searchDiv">
     <div id="filterList">
+        Filters
         <?php
             //make filters appear after they apply filters
         ?>
@@ -89,7 +90,7 @@
             echo "<td class='productBox'>";
             ?><img class="productPreview" src="<?php echo $row["product_image"]?>" alt="Product Image">
             <?php echo "<br>";
-            ?><p><?php echo $row["product_name"]?></p> <a href="index.php?page=productDetails&id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
+            ?><p><?php echo $row["product_name"]?></p><p><?php echo "$".$row["price"]?></p><a href="index.php?page=productDetails&id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
             <?php echo "</td>";
         }
 
@@ -107,32 +108,94 @@
                 $counter++;
             }
         }
-        //Fills table upon opening the product page
-        $res = mysqli_query($link,"select * from product order by product_name");
-        fillProductTable($res);
+
+        //Fills table upon opening the product page        
+        if(!isset($_POST["apply"]) and !isset($_POST["search"]))
+        {
+            $res = mysqli_query($link,"select * from product order by product_name");
+            fillProductTable($res);
+        }
         
         //Triggers if "Apply Filter" button is clicked
         if(isset($_POST["apply"]))
         {
-            if(isset($_POST["filterCategory"]))
+            //If at least a filter is chosen
+            if(isset($_POST["filterCategory"]) or isset($_POST["filterSport"]) or isset($_POST["filterPrice"]))
             {
-                $category = $_POST["filterCategory"][0];
-                $res = mysqli_query($link,"select * from product where category=$category");
-                fillProductTable($res);                
-            }            
-            else echo "haha";
+                $categoryQuery = "";
+                $sportQuery = "";
+                $priceQuery = "";
+                $checked = 0;
+                if(isset($_POST["filterCategory"]))
+                {
+                    $category = $_POST["filterCategory"][0];
+                    $categoryQuery = "select * from product where category='$category'";     
+                    $checked++;               
+                }
+                if(isset($_POST["filterSport"]))
+                {
+                    $sport = $_POST["filterSport"][0];
+                    $sportQuery = "select * from product where sport='$sport'";
+                    $checked++;
+                }
+                if(isset($_POST["filterPrice"]))
+                {
+                    $price = $_POST["filterPrice"][0];                    
+                    if($price == "$0-$99.99") $priceQuery = "select * from product where price >= 0 and price < 100";
+                    elseif($price == "$100-$199.99") $priceQuery = "select * from product where price >= 100 and price < 200";
+                    else $priceQuery = "select * from product where price >= 200";
+
+                    $checked++;
+                }   
+
+                //Checks how many filters were chosen and builds sql query      
+                $filteredQuery = "";
+                if($checked == 1)   
+                {
+                    if($categoryQuery != null) $filteredQuery = $categoryQuery;
+                    elseif($sportQuery != null) $filteredQuery = $sportQuery;
+                    else $filteredQuery = $priceQuery;
+                }
+                elseif($checked == 2)
+                {
+                    if($categoryQuery == null) $filteredQuery = $sportQuery." intersect ".$priceQuery;
+                    elseif($sportQuery == null) $filteredQuery = $categoryQuery." intersect ".$priceQuery;
+                    else $filteredQuery = $sportQuery." intersect ".$categoryQuery;
+                }
+                else $filteredQuery = $categoryQuery." intersect ".$sportQuery." intersect ".$priceQuery;
+                
+                $res = mysqli_query($link,$filteredQuery." order by product_name");
+                fillProductTable($res);
+            }
+            //If no filter was chosen
+            else
+            {
+                $res = mysqli_query($link,"select * from product order by product_name");
+                fillProductTable($res);
+            }
         }
 
         //Triggers if "Reset Filter" button is clicked
         if(isset($_POST["reset"]))
         {
             //select all and echo the table        
+            $res = mysqli_query($link,"select * from product order by product_name");
+            fillProductTable($res);
         }
 
         //Triggers if "Search" button is clicked
         if(isset($_POST["search"]))
         {
-            echo "haha";
+            $searchProduct = $_POST["searchProduct"];
+            $res = mysqli_query($link,"select * from product where product_name like '%$searchProduct%' order by product_name");
+            fillProductTable($res);
+            ?>
+            <!-- Displays the active search word -->
+            <script >
+                $("#filterList span").empty();
+                $("#filterList").append("<?php echo "<span>\"$searchProduct\"</span>"?>");
+            </script>
+            <?php
         }
     ?>
     </table>
