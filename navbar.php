@@ -19,7 +19,7 @@
             <li class="nav-item">
               <a class="nav-link" style="color: white;" href="index.php?page=editProducts">Manage Products</a>
             </li>
-            <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
+            <a class="nav-link" style="color: white;" href="index.php?page=adminDashboard">Account</a>
             
             <a href="logout.php"><button type="button" class="btn btn-info log">Logout</button></a>
         <?php } 

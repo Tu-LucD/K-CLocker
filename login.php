@@ -20,7 +20,13 @@
             $message = "Invalid username or password";
         }
         if(isset($_SESSION['id'])){
-            header("Location: index.php?page=dashboard");
+            if($_SESSION['admin'] == 1){
+                header("Location: index.php?page=adminDashboard");
+            }
+            else if($_SESSION['admin'] == 0){
+                header("Location: index.php?page=dashboard");
+            }
+            
         }
     }
     

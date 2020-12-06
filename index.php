@@ -59,6 +59,12 @@
                 break;
                 case 'promotions':
                     include_once('promotions.php');
+                case 'editProfile':
+                    include_once('editProfile.php');
+                break;
+                case 'adminDashboard':
+                    include_once('adminDashboard.php');
+                break;
                 default:
                     break;
             }
