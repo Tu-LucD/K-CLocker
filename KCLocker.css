@@ -191,3 +191,23 @@ h2{
     margin-bottom: 30px;
     font-family: sans-serif;
 }
+
+/* Dashboard */
+div.left{
+    float: left;
+    width: 40%;
+    /* border: #45A29E 1px solid; */
+}
+div.right{
+    width: 60%;
+    height: 400px;
+    float: right;
+    border: #45A29E 1px solid;
+}
+.profile{
+    color: #66FCF1;
+    font-size: 1em;
+}
+.profileHead{
+    color: #66FCF1;
+}
