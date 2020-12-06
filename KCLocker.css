@@ -162,8 +162,7 @@ h2{
     float: left;
 }
 #productDetailImgDiv img{
-    height: 100%;
-    max-width: 68%;
+    height: 100%;    
 }
 #productPurchasingInfo{
     position: relative;
