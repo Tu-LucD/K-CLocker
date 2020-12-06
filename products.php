@@ -67,11 +67,6 @@
     </form>
 </div>
 <div id="searchDiv">
-    <!-- <div id="filterList">        
-        <?php
-            //make filters appear after they apply filters
-        ?>
-    </div> -->
     <div id="searchBar">      
         <form action="" method="post">  
             <input type="text" name="searchProduct">
@@ -87,9 +82,9 @@
         //Takes a sql query to make a product box
         function createProductBox($row){
             echo "<td class='productBox'>";
-            ?><img class="productPreview" src="<?php echo $row["product_image"]?>" alt="Product Image">
+            ?><a href="index.php?page=productDetails&id=<?php echo $row["id"]?>"><img class="productPreview" src="<?php echo $row["product_image"]?>" alt="Product Image"></a>
             <?php echo "<br>";
-            ?><p><?php echo $row["product_name"]?></p><p><?php echo "$".$row["price"]?></p><a href="index.php?page=productDetails&id=<?php echo $row["id"]?>"><button type="button" class="btn btn-info">View</button></a>
+            ?><p><?php echo $row["product_name"]?></p><p><?php echo "$".$row["price"]?></p>
             <?php echo "</td>";
         }
 
@@ -191,14 +186,7 @@
         {
             $searchProduct = $_POST["searchProduct"];
             $res = mysqli_query($link,"select * from product where product_name like '%$searchProduct%' order by product_name");
-            fillProductTable($res);
-            ?>
-            <!-- Displays the active search word -->
-            <script >
-                $("#filterList span").empty();
-                $("#filterList").append("<?php echo "<span>\"$searchProduct\"</span>"?>");
-            </script>
-            <?php
+            fillProductTable($res);                    
         }
     ?>
     </table>

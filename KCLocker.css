@@ -130,9 +130,9 @@ h2{
     height: 200px;
     object-fit: cover;    
 }
-.productBox button:hover{
+.productBox img:hover{
     transition: 0.25s;
-    background-color: #1f2833;
+    opacity: 0.5;
 }
 
 /* Product Details Page */
@@ -163,6 +163,7 @@ h2{
 }
 #productDetailImgDiv img{
     height: 100%;
+    max-width: 68%;
 }
 #productPurchasingInfo{
     position: relative;
