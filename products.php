@@ -67,6 +67,12 @@
     </form>
 </div>
 <div id="searchDiv">
+    <div id="productsNav">
+        <form action="" method="post">  
+            <input type="submit" name="previousPage" value="<-">
+            <input type="submit" name="nextPage" value="->">
+        </form>
+    </div>
     <div id="searchBar">      
         <form action="" method="post">  
             <input type="text" name="searchProduct">
@@ -78,6 +84,8 @@
     <table>
     <?php
         include('dbConnection.php');
+        $currentRes;
+        
 
         //Takes a sql query to make a product box
         function createProductBox($row){
@@ -97,7 +105,10 @@
                 echo "<tr>";
                 while($row = mysqli_fetch_array($res))
                 {
-                    createProductBox($row);
+                    if($counter < (9 * $_COOKIE["page"] + 10) and $counter >= (9 * $_COOKIE["page"] + 1))
+                    {
+                        createProductBox($row);    
+                    }                    
                     if($counter % 3 == 0)
                     {
                         echo "</tr>";
@@ -106,11 +117,13 @@
                 }
             }                                    
         }
+        
 
         //Fills table upon opening the product page        
         if(!isset($_POST["apply"]) and !isset($_POST["search"]))
         {
             $res = mysqli_query($link,"select * from product order by product_name");
+            $currentRes = $res;
             fillProductTable($res);
         }
         
@@ -163,12 +176,14 @@
                 else $filteredQuery = $categoryQuery." intersect ".$sportQuery." intersect ".$priceQuery;
 
                 $res = mysqli_query($link,$filteredQuery." order by product_name");
+                $currentRes = $res;
                 fillProductTable($res);
             }
             //If no filter was chosen
             else
             {
                 $res = mysqli_query($link,"select * from product order by product_name");
+                $currentRes = $res;
                 fillProductTable($res);
             }
         }
@@ -178,6 +193,7 @@
         {
             //select all and echo the table        
             $res = mysqli_query($link,"select * from product order by product_name");
+            $currentRes = $res;
             fillProductTable($res);
         }
 
@@ -186,7 +202,36 @@
         {
             $searchProduct = $_POST["searchProduct"];
             $res = mysqli_query($link,"select * from product where product_name like '%$searchProduct%' order by product_name");
+            $currentRes = $res;
             fillProductTable($res);                    
+        }
+
+        //Triggers if <- button is clicked
+        if(isset($_POST["previousPage"]))
+        {
+            $page = $_COOKIE["page"];
+            if($page != 0) 
+            {
+                setcookie("page", $page--, time()+3600, "/", "", 0);
+                fillProductTable($currentRes);
+            }
+        }
+
+        //Triggers if -> button is clicked
+        if(isset($_POST["nextPage"]))
+        {
+            $page = $_COOKIE["page"];
+            $counter = 1;
+            while($row = mysqli_fetch_array($currentRes))
+            {
+                $counter++;
+            }
+
+            if((9 * ($page + 1) + 1) < $counter)
+            {
+                setcookie("page", $page++, time()+3600, "/", "", 0);
+                fillProductTable($currentRes);
+            }
         }
     ?>
     </table>

@@ -1,7 +1,7 @@
-<h2>This is the contact page</h2>
-
+<h2>Contact Us</h2>
+<p>Feel free to leave us some feedback! We read all of your comments and take them into account to improve your experience with Knucklehead & Chucklehead Locker</p>  
     <div class="container">
-        <div class="d-flex justify-content-center">    
+        <div class="d-flex justify-content-center">          
         <form action="contact.php" name="feedbackForm" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                 <label for="text">Your Feedback:</label>

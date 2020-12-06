@@ -1,3 +1,6 @@
+<?php
+    setcookie("page", 0, time()+3600, "/", "", 0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +57,8 @@
                 case 'accounts':
                     include_once('accounts.php');
                 break;
+                case 'promotions':
+                    include_once('promotions.php');
                 default:
                     break;
             }

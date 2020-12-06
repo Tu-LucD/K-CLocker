@@ -16,7 +16,19 @@ h2{
 .navbar{
     font-size: 20px;  
     background-color: black;  
+    position: relative;
 }
+.log{
+    position: absolute;
+    right: 2.5%;
+    top: 40px;
+}
+#cartDiv{
+    position: absolute;
+    top: 44px;
+    right: 11.5%;
+}
+
 /* Home page--------------------------- */
 .homeTitles{    
     height: 150px;            
@@ -190,4 +202,20 @@ h2{
     margin-left: 3%;
     margin-bottom: 30px;
     font-family: sans-serif;
+}
+
+/* Promotions Page */
+#promotionsTable{
+    width: 60%;    
+    margin: auto;
+}
+#promotionsTable td{
+    border: 1px solid red;
+}
+.emptyCell{
+    width: 20%;
+}
+.promotionTItle{
+    background-color: black;
+    color: #66FCF1;
 }

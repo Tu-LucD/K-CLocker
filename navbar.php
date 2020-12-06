@@ -21,7 +21,7 @@
             </li>
             <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
             
-            <a href="logout.php"><button type="button" class="btn btn-info">Logout</button></a>
+            <a href="logout.php"><button type="button" class="btn btn-info log">Logout</button></a>
         <?php } 
 
         /** Else if user is not admin, shows these options */
@@ -35,9 +35,12 @@
           <li class="nav-item">
             <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
           </li>  
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=promotions">Promotions</a>
+          </li>
           <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
-             <i class="fa fa-shopping-cart"></i>
-             <a href="logout.php"><button type="button" class="btn btn-info">Logout</button></a>
+             <div id="cartDiv"><i class="fa fa-shopping-cart"></i></div>
+             <a href="logout.php"><button type="button" class="btn btn-info log">Logout</button></a>
       <?php }
         
       }
@@ -54,7 +57,10 @@
           <li class="nav-item">
             <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
           </li>
-          <a href="index.php?page=login"><button type="button" class="btn btn-info">Login</button></a>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="index.php?page=promotions">Promotions</a>
+          </li>
+          <a href="index.php?page=login"><button type="button" class="btn btn-info log">Login</button></a>
       <?php }
       
     ?>
