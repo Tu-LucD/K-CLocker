@@ -54,6 +54,12 @@
                 case 'accounts':
                     include_once('accounts.php');
                 break;
+                case 'editProfile':
+                    include_once('editProfile.php');
+                break;
+                case 'adminDashboard':
+                    include_once('adminDashboard.php');
+                break;
                 default:
                     break;
             }
