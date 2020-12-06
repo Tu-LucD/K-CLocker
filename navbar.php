@@ -19,9 +19,6 @@
             <li class="nav-item">
               <a class="nav-link" style="color: white;" href="index.php?page=editProducts">Manage Products</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
-          </li>
             <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
             
             <a href="logout.php"><button type="button" class="btn btn-info">Logout</button></a>
@@ -56,9 +53,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color: white;" href="index.php?page=contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="index.php?page=insert">Insert</a>
           </li>
           <a href="index.php?page=login"><button type="button" class="btn btn-info">Login</button></a>
       <?php }
