@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2020 at 04:17 AM
+-- Generation Time: Dec 07, 2020 at 12:11 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -204,6 +204,27 @@ INSERT INTO `product` (`id`, `product_name`, `product_description`, `product_ima
 (83, 'Head Sprint Pro 3.0 Men', 'As HEAD\'s lightest shoe, the SPRINT PRO 3.0 is made for players who are looking for more speed on the court. The mesh material makes the shoe lightweight and extremely breathable, while the sock construction takes care of the out-of-the-box comfort you crave. And on top, the new Delta Straps and TPU heel counter keep your foot in place during slides and rallies on even the toughest court.', 'images/product83.jpg', '129.95', 'Tennis', 'Footwear'),
 (84, 'Head Sprint Pro 2.5 Carpet Men MNNR', 'Fast has never been more comfortable. The SPRINT PRO 2.5 CARPET is a serious premium performance shoe for fast versatile players. The breathable mesh upper makes the shoe extremely flexible for an incredibly short break-in time and increased comfort. The unique low-to-the-ground midsole construction allows you to move faster and the HEAD Cooling System integrated into the sole unit supports you during the hottest rallies. The perfect combination of explosive energy and agile finesse, the SPRINT PRO 2.5 is your best partner on carpet surfaces.', 'images/product84.jpg', '160.00', 'Tennis', 'Footwear');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `promotions`
+--
+
+CREATE TABLE `promotions` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `description` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `promotions`
+--
+
+INSERT INTO `promotions` (`id`, `title`, `description`) VALUES
+(1, 'Big Spender\'s Paradise', 'If the order\'s subtotal is equal or higher than $600, you will receive a 10% discount!!'),
+(2, 'Beginner\'s Luck', 'If it is your first purchase with us, you will receive a 5% as a welcome gift!!'),
+(3, 'Team Spirit', 'If you buy the same product 10 times in the same order, get 2 of them for free!!');
+
 --
 -- Indexes for dumped tables
 --
@@ -239,6 +260,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `promotions`
+--
+ALTER TABLE `promotions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -271,6 +298,12 @@ ALTER TABLE `order_items`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+
+--
+-- AUTO_INCREMENT for table `promotions`
+--
+ALTER TABLE `promotions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
