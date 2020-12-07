@@ -210,13 +210,17 @@ h2{
     margin: auto;
 }
 #promotionsTable td{
-    border: 1px solid red;
+    height: 20%;
 }
 .emptyCell{
-    width: 20%;
+    width: 15%;
 }
 .promotionTitle{
     background-color: black;
+    color: #45A29E;
+}
+.promotionDesc{
+    background-color: #45A29E;
 }
 /* Dashboard */
 .left{

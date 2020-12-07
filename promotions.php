@@ -9,7 +9,7 @@
         <td class="emptyCell"></td>
         <td>
             <?php
-                createPromotionCell(2);
+                createPromotionCell(2); 
             ?>
         </td>
     </tr>
@@ -36,10 +36,10 @@
         $res = mysqli_query($link,"select * from promotions where id=$id");
         while($row = mysqli_fetch_array($res))
         {
-            ?>
-            <h3 class="promotionTitle"><?php $row["title"]?></h3>
-            <p class="promotionDesc"><?php $row["description"]?></p>
-            <?php
+            $title = $row["title"];
+            $desc = $row["description"];
+            echo "<h3 class='promotionTitle'>$title</h3>";
+            echo "<p class='promotionDesc'>$desc</p>";
         }
     }
 ?>

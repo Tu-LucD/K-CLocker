@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2020 at 12:11 AM
+-- Generation Time: Dec 07, 2020 at 05:11 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -44,7 +44,7 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `password`) VALUES
 (1, 'James', 'Cortez', 'jamescortez91@gmail.com', 0, 'james', 'polo'),
 (2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo'),
-(3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'SumyonguyClient', 'pokemon828'),
+(3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'Sumyonguy0', 'pokemon828'),
 (4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'SumyonguyAdmin', 'pokemon828');
 
 -- --------------------------------------------------------
@@ -222,8 +222,9 @@ CREATE TABLE `promotions` (
 
 INSERT INTO `promotions` (`id`, `title`, `description`) VALUES
 (1, 'Big Spender\'s Paradise', 'If the order\'s subtotal is equal or higher than $600, you will receive a 10% discount!!'),
-(2, 'Beginner\'s Luck', 'If it is your first purchase with us, you will receive a 5% as a welcome gift!!'),
-(3, 'Team Spirit', 'If you buy the same product 10 times in the same order, get 2 of them for free!!');
+(2, 'Beginner\'s Luck', 'If it is your first purchase with us, you will receive a 5% discount as a welcome gift!!'),
+(3, 'Team Spirit', 'If you buy the same product 10 times in the same order, get 2 of them for free!!'),
+(4, 'Homecourt Advantage', 'If your shipping location is in Montreal, you will receive a 5% discount on your order!!');
 
 --
 -- Indexes for dumped tables
@@ -303,7 +304,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `promotions`
 --
 ALTER TABLE `promotions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
