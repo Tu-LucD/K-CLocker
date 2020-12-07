@@ -29,9 +29,10 @@
 </table>
 
 <?php
-    include('dbConnection.php');    
+      
     function createPromotionCell($id)
     {
+        include('dbConnection.php');  
         $res = mysqli_query($link,"select * from promotions where id=$id");
         while($row = mysqli_fetch_array($res))
         {
