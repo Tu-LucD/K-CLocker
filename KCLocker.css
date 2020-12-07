@@ -215,10 +215,11 @@ h2{
 .emptyCell{
     width: 20%;
 }
-.promotionTItle{
+.promotionTitle{
     background-color: black;
+}
 /* Dashboard */
-div.left{
+.left{
     float: left;
     width: 40%;
     /* border: #45A29E 1px solid; */
