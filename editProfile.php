@@ -61,6 +61,12 @@
         $_SESSION['password'] = $_POST['password'];
 
         
+        if($_SESSION['admin'] == 1){
+            header("Location: index.php?page=adminDashboard");
+        }
+        else{
+            header("Location: index.php?page=dashboard");
+        }
         ?>
         <script type="text/javascript">
             window.location = "index.php?page=dashboard";

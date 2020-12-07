@@ -59,6 +59,7 @@
                 break;
                 case 'promotions':
                     include_once('promotions.php');
+                break;
                 case 'editProfile':
                     include_once('editProfile.php');
                 break;
