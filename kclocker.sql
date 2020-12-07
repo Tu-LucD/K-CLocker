@@ -221,8 +221,8 @@ CREATE TABLE `promotions` (
 --
 
 INSERT INTO `promotions` (`id`, `title`, `description`) VALUES
-(1, 'Big Spender\'s Paradise', 'If the order\'s subtotal is equal or higher than $600, you will receive a 10% discount!!'),
-(2, 'Beginner\'s Luck', 'If it is your first purchase with us, you will receive a 5% discount as a welcome gift!!'),
+(1, 'Big Spender\'s Paradise', 'If the order\'s subtotal is equal or higher than $600, you will receive a 10% discount on your order!!'),
+(2, 'Beginner\'s Luck', 'If it is your first purchase with us, you will receive a 5% discount on your order as a welcome gift!!'),
 (3, 'Team Spirit', 'If you buy the same product 10 times in the same order, get 2 of them for free!!'),
 (4, 'Homecourt Advantage', 'If your shipping location is in Montreal, you will receive a 5% discount on your order!!');
 
