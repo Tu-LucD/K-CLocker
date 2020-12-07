@@ -217,6 +217,7 @@ h2{
 }
 .promotionTItle{
     background-color: black;
+}
 /* Dashboard */
 div.left{
     float: left;
@@ -234,5 +235,9 @@ div.right{
     font-size: 1em;
 }
 .profileHead{
+    color: #66FCF1;
+}
+
+#pastOrders{
     color: #66FCF1;
 }
