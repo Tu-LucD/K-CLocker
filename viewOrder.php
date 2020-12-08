@@ -30,17 +30,15 @@
         }
         $res = mysqli_query($link, "SELECT * FROM orders WHERE id='$_GET[id]' AND account_id='$_SESSION[id]'");
         while($row = mysqli_fetch_array($res)){
+
+            /** For the total, it is the shipping price + price of the order */
             echo "<td>$"; echo $row['order_shipping'] + $price; echo "</td>";
             echo "</tr>";
-        }
-
-        if(isset($_POST['back'])){
-            header("Location: index.php?page=dashboard");
         }
     ?>
     </tbody>
   </table>
 </div>
 
-<a href="index.php?page=dashboard"><i class="fa fa-arrow-left"></i>Go back to Dashboard</a>
+<a id="goBackToProduct" href="index.php?page=dashboard"><i class="fa fa-arrow-left"></i>Go back to Dashboard</a>
 
