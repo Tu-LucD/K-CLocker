@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2020 at 05:11 AM
+-- Generation Time: Dec 08, 2020 at 10:51 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -46,6 +46,19 @@ INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `pa
 (2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo'),
 (3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'Sumyonguy0', 'pokemon828'),
 (4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'SumyonguyAdmin', 'pokemon828');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cartId` int(5) NOT NULL,
+  `productId` int(5) NOT NULL,
+  `unityPrice` decimal(10,2) NOT NULL,
+  `quantity` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -237,6 +250,12 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cartId`);
+
+--
 -- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
@@ -275,6 +294,12 @@ ALTER TABLE `promotions`
 --
 ALTER TABLE `account`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cartId` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `feedback`

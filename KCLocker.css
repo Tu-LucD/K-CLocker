@@ -10,7 +10,7 @@ h2{
     color: #66FCF1;
 }
 #navLogo{
-    height: 80px;
+    height: 8px;
     width: 80px;
 }
 .navbar{
@@ -178,18 +178,27 @@ h2{
 }
 #productPurchasingInfo{
     position: relative;
-    height:100%;
+    height:500px; 
     width:30%;        
     float:right;
+    border: 1px solid red;
 }
-#productPurchasingInfo a{
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
+#productPurchasingInfo a{  
+    position: absolute;          
+    bottom: 10px;
 }
 #productPurchasingInfo p{
     font-size: 30px;
 }
+#productQuantity{
+    display: inline-block;
+}
+#productQuantity input{
+    width: 20%;
+    text-align: center;
+    margin-top: 30%;
+}
+
 #productDetails{
     width: 60%;    
     margin: auto;    

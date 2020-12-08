@@ -7,7 +7,7 @@
     <ul class="navbar-nav">
     <?php
     session_start();
-    
+    $_SESSION['cartQuantity'] = 0;
     /* Checks first if the user is signed in */
       if(isset($_SESSION['id'])){
 
@@ -41,7 +41,7 @@
           <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
              <div id="cartDiv">
                 <i class="fa fa-shopping-cart"></i>
-                <p id="cartQuantity"></p>
+                <p id="cartQuantity"> <?php echo $_SESSION['cartQuantity']?></p>
               </div>
              <a href="logout.php"><button type="button" class="btn btn-info log">Logout</button></a>
       <?php }
