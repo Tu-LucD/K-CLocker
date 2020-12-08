@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="text" class="form-control" placeholder="" name="password" value=<?php echo $password; ?>>
+            <input type="password" class="form-control" placeholder="" name="password" value=<?php echo $password; ?>>
         </div>
         <button type="submit" name="update" class="btn btn-info">Update</button>
         <button type="submit" name="cancel" class="btn btn-info">Cancel</button>
