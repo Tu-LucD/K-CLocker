@@ -1,4 +1,4 @@
-<h2>Your Profile</h2>
+
 
 <div class="left" >
     <h2 class="profileHead"><u>This is your profile information</u></h2>
