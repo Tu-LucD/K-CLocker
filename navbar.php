@@ -7,7 +7,7 @@
     <ul class="navbar-nav">
     <?php
     session_start();
-
+    
     /* Checks first if the user is signed in */
       if(isset($_SESSION['id'])){
 
@@ -39,7 +39,10 @@
             <a class="nav-link" style="color: white;" href="index.php?page=promotions">Promotions</a>
           </li>
           <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
-             <div id="cartDiv"><i class="fa fa-shopping-cart"></i></div>
+             <div id="cartDiv">
+                <i class="fa fa-shopping-cart"></i>
+                <p id="cartQuantity"></p>
+              </div>
              <a href="logout.php"><button type="button" class="btn btn-info log">Logout</button></a>
       <?php }
         

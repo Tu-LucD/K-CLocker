@@ -83,9 +83,7 @@
 <div id="productsDiv">
     <table>
     <?php
-        include('dbConnection.php');
-        $currentRes;
-        
+        include('dbConnection.php');                
 
         //Takes a sql query to make a product box
         function createProductBox($row){
@@ -97,34 +95,43 @@
         }
 
         //Takes result of sql query to make rows of products
-        function fillProductTable($res){
-            if(mysqli_fetch_array($res) == null) echo "<h3>No products matching the description was found.</h3>";
+        function fillProductTable(){
+            $res = $_SESSION['currentRes'];
+            if( $res == null) echo "<h3>No products matching the description was found.</h3>";
             else
             {
-                $counter = 1;
-                echo "<tr>";
-                while($row = mysqli_fetch_array($res))
+                $resLength = count($res);
+                $index = $_SESSION['currentIndex'];
+                $trimRes;
+
+                //If there can only be one page
+                if($resLength <= 9) {$trimRes = $res;}
+                //If on last page
+                else if (($resLength - $index) <= 9) {$trimRes = array_slice($res, $index, $resLength-1);}
+                //If there can be more pages after this one
+                else
                 {
-                    if($counter < (9 * $_COOKIE["page"] + 10) and $counter >= (9 * $_COOKIE["page"] + 1))
-                    {
-                        createProductBox($row);    
-                    }                    
-                    if($counter % 3 == 0)
-                    {
-                        echo "</tr>";
-                    }
+                    $trimRes = array_slice($res, $index, $index + 9);
+                }
+                
+                $counter = 1;                
+                echo "<tr>";
+                while($row = $trimRes)
+                {
+                    createProductBox($row);
+                    if($counter %= 3) echo "</tr>";
                     $counter++;
                 }
             }                                    
         }
         
-
         //Fills table upon opening the product page        
         if(!isset($_POST["apply"]) and !isset($_POST["search"]))
         {
             $res = mysqli_query($link,"select * from product order by product_name");
-            $currentRes = $res;
-            fillProductTable($res);
+            $_SESSION['currentRes'] = mysqli_fetch_array($res);
+            $_SESSION['currentIndex'] = 1;
+            fillProductTable();
         }
         
         //Triggers if "Apply Filter" button is clicked
@@ -176,15 +183,17 @@
                 else $filteredQuery = $categoryQuery." intersect ".$sportQuery." intersect ".$priceQuery;
 
                 $res = mysqli_query($link,$filteredQuery." order by product_name");
-                $currentRes = $res;
-                fillProductTable($res);
+                $_SESSION['currentRes'] = mysqli_fetch_array($res);
+                $_SESSION['currentIndex'] = 1;
+                fillProductTable();                
             }
             //If no filter was chosen
             else
             {
                 $res = mysqli_query($link,"select * from product order by product_name");
-                $currentRes = $res;
-                fillProductTable($res);
+                $_SESSION['currentRes'] = mysqli_fetch_array($res);
+                $_SESSION['currentIndex'] = 1;
+                fillProductTable();
             }
         }
 
@@ -193,45 +202,31 @@
         {
             //select all and echo the table        
             $res = mysqli_query($link,"select * from product order by product_name");
-            $currentRes = $res;
-            fillProductTable($res);
+            $_SESSION['currentRes'] = mysqli_fetch_array($res);
+            $_SESSION['currentIndex'] = 1;
+            fillProductTable();
         }
 
         //Triggers if "Search" button is clicked
         if(isset($_POST["search"]))
-        {
+        {            
             $searchProduct = $_POST["searchProduct"];
             $res = mysqli_query($link,"select * from product where product_name like '%$searchProduct%' order by product_name");
-            $currentRes = $res;
-            fillProductTable($res);                    
+            $_SESSION['currentRes'] = mysqli_fetch_array($res);
+            $_SESSION['currentIndex'] = 1;
+            fillProductTable();                 
         }
 
         //Triggers if <- button is clicked
         if(isset($_POST["previousPage"]))
         {
-            $page = $_COOKIE["page"];
-            if($page != 0) 
-            {
-                setcookie("page", $page--, time()+3600, "/", "", 0);
-                fillProductTable($currentRes);
-            }
+
         }
 
         //Triggers if -> button is clicked
         if(isset($_POST["nextPage"]))
         {
-            $page = $_COOKIE["page"];
-            $counter = 1;
-            while($row = mysqli_fetch_array($currentRes))
-            {
-                $counter++;
-            }
 
-            if((9 * ($page + 1) + 1) < $counter)
-            {
-                setcookie("page", $page++, time()+3600, "/", "", 0);
-                fillProductTable($currentRes);
-            }
         }
     ?>
     </table>

@@ -210,7 +210,7 @@ h2{
     margin: auto;
 }
 #promotionsTable td{
-    border: 1px solid red;
+    padding-bottom: 10%;
 }
 .emptyCell{
     width: 20%;

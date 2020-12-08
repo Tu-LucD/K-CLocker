@@ -1,6 +1,3 @@
-<?php
-    setcookie("page", 0, time()+3600, "/", "", 0);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +13,8 @@
 </head>
 <body>
     <?php
-        include_once('navbar.php');        
+        include_once('navbar.php');
+        
         if(isset($_GET['page'])){
             $page = $_GET['page'];
         
