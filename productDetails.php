@@ -21,15 +21,17 @@
     }    
 ?>
 <a id="goBackToProduct" href="index.php?page=products"><i class="fa fa-arrow-left"></i>Go back to Products</a>
-<div id="pdDetailsContainer">
-    <div id="productDetailImgDiv"><img src="<?php echo $imageUrl?>" alt=""></div>
-    <div id="productPurchasingInfo">
-        <h2><?php echo $name?></h2>
-        <h4>Price:</h4>
-        <p>$<?php echo $price ?></p>        
-        <a href="index.php?page=products"><button type="button" class="btn btn-info">Add to Cart</button></a>
+<form action="" method="post">
+    <div id="pdDetailsContainer">
+        <div id="productDetailImgDiv"><img src="<?php echo $imageUrl?>" alt=""></div>
+        <div id="productPurchasingInfo">
+            <h2><?php echo $name?></h2>
+            <h4>Price:</h4>
+            <p>$<?php echo $price ?></p>        
+            <input type="submit" name="addCart" value="Add to Cart">
+        </div>
     </div>
-</div>
+</form>
 <div id="productDetails">
     <h3>Description</h3>
     <p><?php echo $description ?></p>
@@ -38,3 +40,29 @@
     <h3>Category</h3>
     <p><?php echo $category ?></p>    
 </div>
+
+<?php    
+    if(isset($_POST["addCart"]))
+    {
+        $res=mysqli_query($link, "select * from cart where productId=$id");
+        //Product is
+        if(mysqli_fetch_array($res) == null)
+        {
+            mysqli_query($link,"INSERT INTO cart VALUES(NULL,$id,$price,1");
+            echo "inserted";
+        }
+        //Product is already in cart
+        else
+        {            
+            $quantity = 0;
+            while($row=mysqli_fetch_array($res))
+            {
+                $quantity=$row["quantity"];
+            }
+            $quantity++;
+            mysqli_query($link,"UPDATE cart SET quantity='$quantity'");
+            echo "nope";
+        }        
+    }
+    
+?>
