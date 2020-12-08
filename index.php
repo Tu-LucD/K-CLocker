@@ -66,6 +66,9 @@
                 case 'adminDashboard':
                     include_once('adminDashboard.php');
                 break;
+                case 'viewOrder':
+                    include_once('viewOrder.php');
+                break;
                 default:
                     break;
             }
