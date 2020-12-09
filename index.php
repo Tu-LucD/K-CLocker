@@ -67,6 +67,8 @@
                 case 'viewOrder':
                     include_once('viewOrder.php');
                 break;
+                case 'cart':
+                    include_once('cart.php');
                 default:
                     break;
             }

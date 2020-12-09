@@ -46,21 +46,21 @@
     {
         $res=mysqli_query($link, "select * from cart where productId=$id");
         //Product is
-        if(mysqli_fetch_array($res) == null)
-        {
-            mysqli_query($link,"INSERT INTO cart VALUES(NULL,$id,$price,1");
-            echo "inserted";
+        if(!mysqli_fetch_array($res))
+        {       
+            $response = mysqli_query($link,"INSERT INTO cart values(NULL, $id,$price,1)");                
         }
         //Product is already in cart
         else
-        {            
-            $quantity = 0;
+        {          
+            $quantity=0;                                               
+            $res=mysqli_query($link, "select * from cart where productId=$id");
             while($row=mysqli_fetch_array($res))
             {
-                $quantity=$row["quantity"];
-            }
-            $quantity++;
-            mysqli_query($link,"UPDATE cart SET quantity='$quantity'");
+                $quantity = $row["quantity"];
+            }              
+            $quantity++;            
+            mysqli_query($link,"UPDATE cart SET quantity=$quantity where productId=$id");
             echo "nope";
         }        
     }

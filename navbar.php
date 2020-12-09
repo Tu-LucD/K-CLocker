@@ -39,11 +39,13 @@
             <a class="nav-link" style="color: white;" href="index.php?page=promotions">Promotions</a>
           </li>
           <a class="nav-link" style="color: white;" href="index.php?page=dashboard">Account</a>
+          <a href="index.php?page=cart">
              <div id="cartDiv">
                 <i class="fa fa-shopping-cart"></i>
                 <p id="cartQuantity"> <?php echo $_SESSION['cartQuantity']?></p>
               </div>
-             <a href="logout.php"><button type="button" class="btn btn-info log">Logout</button></a>
+          </a>
+          <a href="logout.php"><button type="button" class="btn btn-info log">Logout</button></a>
       <?php }
         
       }

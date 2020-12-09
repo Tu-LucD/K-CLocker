@@ -83,8 +83,7 @@
 <div id="productsDiv">
     <table>
     <?php
-        include('dbConnection.php');                
-
+        include('dbConnection.php');                        
         //Takes a sql query to make a product box
         function createProductBox($row){
             echo "<td class='productBox'>";
@@ -128,8 +127,14 @@
         //Fills table upon opening the product page        
         if(!isset($_POST["apply"]) and !isset($_POST["search"]))
         {
-            $res = mysqli_query($link,"select * from product order by product_name");
-            $_SESSION['currentRes'] = mysqli_fetch_array($res);
+            $res = mysqli_query($link,"select * from product");
+            //$_SESSION['currentRes'] = mysqli_fetch_array($res);
+            $arr[] = array();
+            while($row = mysqli_fetch_array($res))
+            {
+                array_push($arr, $row);
+            }
+            $_SESSION['currentRes'] = $arr;
             $_SESSION['currentIndex'] = 1;
             fillProductTable();
         }
