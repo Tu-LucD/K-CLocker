@@ -20,7 +20,7 @@
 
     <?php
         include('dbConnection.php');
-        $res = mysqli_query($link, "SELECT * FROM account");
+        $res = mysqli_query($link, "SELECT * FROM account WHERE id!='$_SESSION[id]'");
         while($row = mysqli_fetch_array($res)){
             echo "<tr>";
             echo "<td>"; echo $row['id']; echo "</td>";
