@@ -11,7 +11,6 @@
             <tr>
             <th>Product Name</th>
             <th>Price</th>
-            <th>Total</th>
             </tr>
          </u>
         </thead>
@@ -19,25 +18,26 @@
 
 
     <?php
+    /** ToFix */
         include('dbConnection.php');
         $price = 0;
+        $totalPrice = 0;
         $res = mysqli_query($link, "SELECT * FROM order_items oi, product p WHERE order_id='$_GET[id]' AND oi.product_id = p.id");
         while($row = mysqli_fetch_array($res)){
             echo "<tr>";
             echo "<td>"; echo $row['product_name']; echo "</td>";
-            echo "<td>$"; echo $row['price']; echo "</td>";
+            echo "<td>$"; echo $row['price']; $totalPrice += $row['price']; echo "</td>";
             $price = $row['price'];
         }
         $res = mysqli_query($link, "SELECT * FROM orders WHERE id='$_GET[id]' AND account_id='$_SESSION[id]'");
         while($row = mysqli_fetch_array($res)){
-
-            /** For the total, it is the shipping price + price of the order */
-            echo "<td>$"; echo $row['order_shipping'] + $price; echo "</td>";
+            $totalPrice += $row['order_shipping'];
             echo "</tr>";
         }
     ?>
     </tbody>
   </table>
+  <p style="color: green;">  <?php  echo "Total Price (shipping included): $$totalPrice";   ?>  </p>
 </div>
 
 <a id="goBackToProduct" href="index.php?page=dashboard"><i class="fa fa-arrow-left"></i>Go back to Dashboard</a>
