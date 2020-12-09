@@ -23,10 +23,15 @@ h2{
     right: 2.5%;
     top: 40px;
 }
-#cartDiv{
+#cartNav{
+    color: white;
     position: absolute;
-    top: 44px;
-    right: 11.5%;
+    right: 11%;
+}
+#cartNav:hover{
+    text-decoration: none;
+    transition: 0.1s;
+    color: #45A29E;
 }
 
 /* Home page--------------------------- */
@@ -180,8 +185,7 @@ h2{
     position: relative;
     height:500px; 
     width:30%;        
-    float:right;
-    border: 1px solid red;
+    float:right;    
 }
 #productPurchasingInfo input{  
     position: absolute;          
@@ -232,6 +236,7 @@ h2{
 }
 .promotionTitle{
     background-color: black;
+    color: #45A29E;
 }
 /* Dashboard */
 .left{
@@ -259,4 +264,23 @@ div.right{
 
 #pastOrders{
     color: #66FCF1;
+}
+
+/* Cart */
+#cartContents{
+    color: white;
+    width: 60%;
+    border: 1px solid #66FCF1;    
+    margin: 5% auto;
+    font-size: 20px;
+}
+#cartContents td{
+    border: 1px solid red;
+}
+.cartItemImg{
+    height: 150px;
+    padding-bottom: 20px;
+}
+.cartItemName{
+    width: 10%;
 }

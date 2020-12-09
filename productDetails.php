@@ -53,15 +53,21 @@
         //Product is already in cart
         else
         {          
+            //Take current quantity
             $quantity=0;                                               
-            $res=mysqli_query($link, "select * from cart where productId=$id");
+            $res=mysqli_query($link, "select * from cart where productId=$id");            
             while($row=mysqli_fetch_array($res))
             {
                 $quantity = $row["quantity"];
             }              
+            //Increment quantity by 1 and update the table
             $quantity++;            
             mysqli_query($link,"UPDATE cart SET quantity=$quantity where productId=$id");
-            echo "nope";
+            
+            //Increment number of items in cart
+            $nbCart = $_SESSION['cartQuantity'];
+            $nbCart++;
+            $_SESSION['cartQuantity'] = $nbCart;
         }        
     }
     

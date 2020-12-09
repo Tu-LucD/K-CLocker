@@ -69,6 +69,9 @@
                 break;
                 case 'cart':
                     include_once('cart.php');
+                break;
+                case 'editCart':
+                    include_once('editCartItem.php');
                 default:
                     break;
             }
