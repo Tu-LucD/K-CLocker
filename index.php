@@ -72,6 +72,10 @@
                 break;
                 case 'editCart':
                     include_once('editCartItem.php');
+                break;
+                case 'toggleAdmin':
+                    include_once('toggleAdmin.php');
+                break;
                 default:
                     break;
             }
