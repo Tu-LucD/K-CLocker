@@ -76,6 +76,9 @@
                 case 'toggleAdmin':
                     include_once('toggleAdmin.php');
                 break;
+                case 'editProduct':
+                    include_once('editProduct.php');
+                break;
                 default:
                     break;
             }

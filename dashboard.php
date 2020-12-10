@@ -10,7 +10,7 @@
 </div>
 
 <div class="right">
-  <div class="scroll">
+  <div>
     <h2 class="profileHead"><u>These are your past orders</u></h2>
 
     <table id="pastOrders" class="table table-bordered">

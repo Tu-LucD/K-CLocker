@@ -1,6 +1,6 @@
 <h2>Manage Accounts</h2>
 
-<div class="scroll">
+<div>
 
     <table id="pastOrders" class="table table-bordered">
     <thead>
@@ -34,7 +34,7 @@
             echo "<td>"; echo md5($row['password']); echo "</td>";
 
             /** Button that will switch the value of admin status if clicked */
-            echo "<td>"; ?> <a href="index.php?page=toggleAdmin&admin=<?php echo $row['admin'] ?>&&id=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">Toggle Admin</button></a> <?php echo "</td>";
+            echo "<td>"; ?> <a href="index.php?page=toggleAdmin&admin=<?php echo $row['admin'] ?>&id=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">Toggle Admin</button></a> <?php echo "</td>";
             echo "</tr>";
         }
     ?>

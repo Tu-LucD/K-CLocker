@@ -19,7 +19,7 @@
         }
 
 
-        mysqli_query($link, "UPDATE account SET admin=$newAdmin WHERE id='$_GET[id]'");
+        mysqli_query($link, "UPDATE account SET admin=$newAdmin WHERE id=$id");
 
         /** Goes back to Manage accounts page with updated information */
         header("Location: index.php?page=accounts");
