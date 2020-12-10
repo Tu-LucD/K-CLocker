@@ -1,0 +1,1 @@
+<h2>Manage Inventory</h2>

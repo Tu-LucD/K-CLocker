@@ -55,6 +55,9 @@
                 case 'accounts':
                     include_once('accounts.php');
                 break;
+                case 'inventory':
+                    include_once('inventory.php');
+                break;
                 case 'promotions':
                     include_once('promotions.php');
                 break;
