@@ -27,8 +27,18 @@
         <div id="productPurchasingInfo">
             <h2><?php echo $name?></h2>
             <h4>Price:</h4>
-            <p>$<?php echo $price ?></p>        
-            <input type="submit" name="addCart" value="Add to Cart">
+            <p>$<?php echo $price ?></p>
+            <?php
+            /** User cannot add products to cart if they are not signed in */
+                if(!isset($_SESSION['id'])){
+                    echo '<a href="index.php?page=login">Sign in to add products to your cart!</a>';
+                }
+                else{
+                    
+                    echo '<input type="submit" name="addCart" value="Add to Cart">';
+                }
+            ?>        
+            <!-- <input type="submit" name="addCart" value="Add to Cart"> -->
         </div>
     </div>
 </form>
