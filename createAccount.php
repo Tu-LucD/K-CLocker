@@ -24,7 +24,7 @@
 <br>
 <p>Already have an account with us?<a href="index.php?page=login"> Sign in</a></p>
 
-<!-- This part will create and add new user to the DB -->
+<!-- Takes all the inputs and creates an account (inserts into the database) -->
 <?php
     include('dbConnection.php');
     session_destroy();

@@ -17,10 +17,13 @@
         header("Location: index.php?page=login");
     }
     
+    /** If send button is clicked, then whatever is in the textbox gets inserted into the database */
     if(isset($_POST['sendFeedback'])){
         session_start();
         $id = $_SESSION['id'];
         mysqli_query($link, "INSERT INTO feedback values(NULL, '$id', '$_POST[text]')");
+        
+        /** User gets sent to a confirmation page */
         header("Location: index.php?page=confirm");
     }
 ?>

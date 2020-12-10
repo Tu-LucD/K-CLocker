@@ -18,10 +18,11 @@
 
 
     <?php
-    /** ToFix */
         include('dbConnection.php');
         $price = 0;
         $totalPrice = 0;
+
+        /** Fills the table with products included in this order along with their prices */
         $res = mysqli_query($link, "SELECT * FROM order_items oi, product p WHERE order_id='$_GET[id]' AND oi.product_id = p.id");
         while($row = mysqli_fetch_array($res)){
             echo "<tr>";
@@ -37,8 +38,10 @@
     ?>
     </tbody>
   </table>
+  <!-- This displays the total rice + shipping -->
   <p style="color: green;">  <?php  echo "Total Price (shipping included): $$totalPrice";   ?>  </p>
 </div>
 
+<!-- User can go back to their dashboard by clicking this link -->
 <a id="goBackToProduct" href="index.php?page=dashboard"><i class="fa fa-arrow-left"></i>Go back to Dashboard</a>
 

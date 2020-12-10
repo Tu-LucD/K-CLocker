@@ -1,6 +1,7 @@
 <h2>Edit Your Profile</h2>
 
 <?php
+/** Gets the informtion of the user from the database */
     include "dbConnection.php";
     $id = $_GET["id"];
     $firstname = $lastname = $email = $username = $password = "";
@@ -14,6 +15,7 @@
     }
 ?>
 
+<!-- This form is filled with all the information -- Can be edited -->
 <div class="container">
     <div class="d-flex justify-content-center">    
     <form action="<?php $_PHP_SELF ?>" name="loginForm" method="POST" enctype="multipart/form-data">
@@ -44,6 +46,7 @@
 </div>
 
 <?php
+/** If the user decides to cancel, it will bring him/her back to their respective dashboard depending on admin status */
     if(isset($_POST['cancel'])){
         if($_SESSION['admin'] == 1){
             header("Location: index.php?page=adminDashboard");
@@ -52,6 +55,8 @@
             header("Location: index.php?page=dashboard");
         }
     }
+
+    /** Once this is clicked, anything changed in the textboxes will be updated and saved in the database */
     if(isset($_POST["update"])){
         mysqli_query($link, "UPDATE account SET fname='$_POST[firstname]', lname='$_POST[lastname]', email='$_POST[email]', username='$_POST[username]', password='$_POST[password]' WHERE id='$_GET[id]'");
         $_SESSION['fname'] = $_POST['firstname'];
@@ -60,18 +65,13 @@
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];
 
-        
+        /** After, user is sent back to the dashboard, same as the cancel button */
         if($_SESSION['admin'] == 1){
             header("Location: index.php?page=adminDashboard");
         }
         else{
             header("Location: index.php?page=dashboard");
         }
-        ?>
-        <script type="text/javascript">
-            window.location = "index.php?page=dashboard";
-        </script>
-    <?php
     }
     
 ?>

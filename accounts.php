@@ -27,9 +27,13 @@
             echo "<td>"; echo $row['fname']; echo "</td>";
             echo "<td>"; echo $row['lname']; echo "</td>";
             echo "<td>"; echo $row['email']; echo "</td>";
+
+            /** Depending on the admin value, it will show Yes or No */
             echo "<td>"; if($row['admin'] == 0) {echo "No";} else {echo "Yes";} echo "</td>";
             echo "<td>"; echo $row['username']; echo "</td>";
             echo "<td>"; echo md5($row['password']); echo "</td>";
+
+            /** Button that will switch the value of admin status if clicked */
             echo "<td>"; ?> <a href="index.php?page=toggleAdmin&admin=<?php echo $row['admin'] ?>&&id=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">Toggle Admin</button></a> <?php echo "</td>";
             echo "</tr>";
         }

@@ -19,6 +19,8 @@
         else{
             $message = "Invalid username or password";
         }
+
+        /** Brings user to respective dashboard depending on admin status */
         if(isset($_SESSION['id'])){
             if($_SESSION['admin'] == 1){
                 header("Location: index.php?page=adminDashboard");
@@ -46,6 +48,7 @@
         </div>
         <p style="color: red;">
         <?php 
+            /** Message displays if login credentials are incorrect */
             if($message != "") {echo $message;} 
         ?>
     </p>

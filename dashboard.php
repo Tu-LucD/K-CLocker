@@ -25,12 +25,15 @@
 
 
     <?php
+    /** This part shows past orders of the user signed in, if there are any */
         include('dbConnection.php');
         $res = mysqli_query($link, "SELECT * FROM orders WHERE account_id='$_SESSION[id]'");
         while($row = mysqli_fetch_array($res)){
             echo "<tr>";
             echo "<td>"; echo $row['id']; echo "</td>";
             echo "<td>"; echo $row['order_date']; echo "</td>";
+
+            /** Option to view the items purchased in the order */
             echo "<td>"; ?> <a href="index.php?page=viewOrder&id=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">View</button></a> <?php echo "</td>";
             echo "</tr>";
         }
