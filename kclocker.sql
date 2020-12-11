@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 10:51 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Dec 11, 2020 at 10:24 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `password`) VALUES
 (1, 'James', 'Cortez', 'jamescortez91@gmail.com', 0, 'james', 'polo'),
-(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 0, 'Jamez', 'polo'),
+(2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 1, 'Jamez', 'polo'),
 (3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'Sumyonguy0', 'pokemon828'),
 (4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'SumyonguyAdmin', 'pokemon828');
 
@@ -72,6 +72,13 @@ CREATE TABLE `feedback` (
   `feedback_content` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `account_id`, `feedback_content`) VALUES
+(9, 1, 'Helloooooooooooooooo');
+
 -- --------------------------------------------------------
 
 --
@@ -82,6 +89,96 @@ CREATE TABLE `inventory` (
   `id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`id`, `quantity`) VALUES
+(1, 100),
+(2, 100),
+(3, 100),
+(4, 100),
+(5, 100),
+(6, 100),
+(7, 100),
+(8, 100),
+(9, 100),
+(10, 100),
+(11, 100),
+(12, 100),
+(13, 100),
+(14, 100),
+(15, 100),
+(16, 100),
+(17, 100),
+(18, 100),
+(19, 100),
+(20, 100),
+(21, 100),
+(22, 100),
+(23, 100),
+(24, 100),
+(25, 100),
+(26, 100),
+(27, 100),
+(28, 100),
+(29, 100),
+(30, 100),
+(31, 100),
+(32, 100),
+(33, 100),
+(34, 100),
+(35, 100),
+(36, 100),
+(37, 100),
+(38, 100),
+(39, 100),
+(40, 100),
+(41, 100),
+(42, 100),
+(43, 100),
+(44, 100),
+(45, 100),
+(46, 100),
+(47, 100),
+(48, 100),
+(49, 100),
+(50, 100),
+(51, 100),
+(52, 100),
+(53, 100),
+(54, 100),
+(55, 100),
+(56, 100),
+(57, 100),
+(58, 100),
+(59, 100),
+(60, 100),
+(61, 100),
+(62, 100),
+(63, 100),
+(64, 100),
+(65, 100),
+(66, 100),
+(67, 100),
+(68, 100),
+(69, 100),
+(70, 100),
+(71, 100),
+(72, 100),
+(73, 100),
+(74, 100),
+(75, 100),
+(76, 100),
+(77, 100),
+(78, 100),
+(79, 100),
+(80, 100),
+(81, 100),
+(82, 100),
+(83, 100),
+(84, 100);
 
 -- --------------------------------------------------------
 
@@ -97,6 +194,13 @@ CREATE TABLE `orders` (
   `order_shipping` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `account_id`, `order_date`, `order_price`, `order_shipping`) VALUES
+(1, 1, '2020-12-16', '9.00', '25.00');
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +214,14 @@ CREATE TABLE `order_items` (
   `order_item_quantity` int(11) NOT NULL,
   `order_item_price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `order_item_quantity`, `order_item_price`) VALUES
+(1, 1, 9, 1, '9.00'),
+(2, 1, 2, 1, '99.99');
 
 -- --------------------------------------------------------
 
@@ -168,7 +280,7 @@ INSERT INTO `product` (`id`, `product_name`, `product_description`, `product_ima
 (34, 'Adidas X90004D Shoes', 'As high tech as your life. These adidas X90004D Shoes are designed for the fast pace and high energy of our hyperconnected world. The distinctive lattice midsole was crafted from liquid resin to give you precisely tuned cushioning that keeps you comfortable while running or gaming with friends. Floating triangles and supportive underlays give the stretchy knit upper a bold and futuristic look.', 'images/product34.jpg', '275.00', 'Running', 'Footwear'),
 (35, 'Adidas Galaxy 5', 'Make the most out of your runs. No matter how far you go, these adidas shoes cushion every take-off and landing to make each step feel like a good one. Another block. Another lap. Another mile. Get after it.', 'images/product35.jpg', '90.00', 'Running', 'Footwear'),
 (36, 'Adidas Climacool Vento', 'Don\'t forgo your day just because of the heat. Keep your routine on track in these adidas Climacool Vento Shoes. They have a breathable upper and responsive cushioning that keep you looking and feeling fresh.', 'images/product36.jpg', '180.00', 'Running', 'Footwear'),
-(37, 'Adidas Edge XT SUMMER.RDY Shoes', 'Because your speed training can\'t wait for cooler weather. These adidas running shoes have a breathable textile upper and built-in ventilation for a breezy feel in the heat. Midfoot stability means you feel sure-footed, any way you turn.', 'images/product 37.jpg', '90.00', 'Running', 'Footwear'),
+(37, 'Adidas Edge XT SUMMER.RDY Shoes', 'Because your speed training can\'t wait for cooler weather. These adidas running shoes have a breathable textile upper and built-in ventilation for a breezy feel in the heat. Midfoot stability means you feel sure-footed, any way you turn.', 'images/product37.jpg', '90.00', 'Running', 'Footwear'),
 (38, 'DeMarini CF 2¾\' USSSA Bat 2020 (-10)', 'Developed for the well-rounded player that needs the perfect combination of speed, power, and barrel control, the 2020 DeMarini® CF® USSSA Bat is outfitted with high-performing materials to elevate your game to its apex. Utilizing the power of ParaFlex™ Plus Composite in the handle and barrel, this two-piece, -10 model offers a massive sweet spot and maximizes the transfer of energy straight to the barrel to drive pitches with force.', 'images/product38.jpg', '299.99', 'Baseball', 'Equipment'),
 (39, 'Louisville Slugger Prime BBCOR Bat 2020 (-3)', 'Engineered with advanced composite material, the 2020 Louisville Slugger® Prime® BBCOR Bat has been fully optimized to drive through the zone with exceptional speed and power at the plate this season. This three-piece model utilizes a patented VCX™ Vibration Control Connection System, allowing the handle and barrel to move independently upon contact to better control vibration and provide unmatched feel.', 'images/product39.jpg', '349.99', 'Baseball', 'Equipment'),
 (40, 'Rawlings Quatro Pro USA Youth Bat 2020 (-12)', 'Get more pop, more distance and a lighter, faster swing speed with the 2019 Rawlings® Quatro™ Pro USA Bat. Introducing the second generation for the Youth Quatro™ Pro, this -12 composite model has a more forgiving swing weight for every player in the lineup, and features a suspended inner barrel to balance impact and velocity through the zone.', 'images/product40.jpg', '249.99', 'Baseball', 'Equipment'),
@@ -262,6 +374,12 @@ ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -299,25 +417,31 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartId` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `cartId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `inventory`
+--
+ALTER TABLE `inventory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product`
