@@ -61,7 +61,7 @@
 
 <?php
     if(isset($_POST["update"])){
-        mysqli_query($link, "UPDATE product SET product_name='$_POST[name]', product_description='$_POST[description]', price='$_POST[price]', sport='$_POST[sport]', category='$_POST[category]' WHERE id='$_GET[productId]'");
+        mysqli_query($link, "UPDATE product SET product_name='$_POST[name]', product_description='$_POST[description]', price='$_POST[price]', sport='$_POST[sport]', category='$_POST[category]' WHERE id=$id");
         echo'<script> window.location="index.php?page=editProducts"; </script> ';
 
         
