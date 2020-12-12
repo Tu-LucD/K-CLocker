@@ -53,6 +53,7 @@
 <?php    
     if(isset($_POST["addCart"]))
     {
+        $_SESSION['cartQuantity'] = 0;
         $res=mysqli_query($link, "select * from cart where productId=$id");
         //Product is
         if(!mysqli_fetch_array($res))
