@@ -33,6 +33,7 @@
     <?php
         include('dbConnection.php');
         if(!isset($_POST['search'])){
+            /** Will display if nothing has happened */
             $res = mysqli_query($link, "SELECT * FROM product, inventory WHERE product.id = inventory.id");
             while($row = mysqli_fetch_array($res)){
                 echo "<tr>";
@@ -49,6 +50,7 @@
                 echo "</tr>";
             }
         }
+        /** Takes the word in the search box and looks at the name or description of the products to find that word */
         else if(isset($_POST['search'])){
             $res = mysqli_query($link, "SELECT * FROM product, inventory WHERE product.product_name LIKE '%$_POST[name]%' OR product.product_description LIKE '%$_POST[name]%' AND product.id = inventory.id");
             while($row = mysqli_fetch_array($res)){
@@ -65,8 +67,8 @@
                 echo "</tr>";
             }
         }
-
-        if(isset($_POST['reset'])){
+        /** Resets the table to how it was originally */
+        else if(isset($_POST['reset'])){
             $res = mysqli_query($link, "SELECT * FROM product, inventory WHERE product.id = inventory.id");
             while($row = mysqli_fetch_array($res)){
                 echo "<tr>";

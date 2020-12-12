@@ -43,6 +43,7 @@
               echo "</tr>";
           }
         }
+        /** This sorts from oldest to newest (descending) */
         else if(isset($_POST['descending'])){
           $res = mysqli_query($link, "SELECT * FROM orders WHERE account_id='$_SESSION[id]' order by id desc");
           while($row = mysqli_fetch_array($res)){
@@ -55,8 +56,8 @@
               echo "</tr>";
           }
         }
-
-        else if(isset($_POST['ascending'])){
+        /** All this does is make the table how it originally was when first loading */
+       else if(isset($_POST['ascending'])){
           $res = mysqli_query($link, "SELECT * FROM orders WHERE account_id='$_SESSION[id]' order by id");
           while($row = mysqli_fetch_array($res)){
               echo "<tr>";
