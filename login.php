@@ -15,6 +15,7 @@
             $_SESSION['admin'] = $row['admin'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['password'] = $row['password'];
+            $_SESSION['cartQuantity'] = 0;
         }
         else{
             $message = "Invalid username or password";
