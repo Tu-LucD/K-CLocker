@@ -27,7 +27,7 @@
     <?php
     /** This part shows past orders of the user signed in, if there are any */
         include('dbConnection.php');
-        $res = mysqli_query($link, "SELECT * FROM orders WHERE account_id='$_SESSION[id]'");
+        $res = mysqli_query($link, "SELECT * FROM orders WHERE account_id='$_SESSION[id]' order by id");
         while($row = mysqli_fetch_array($res)){
             echo "<tr>";
             echo "<td>"; echo $row['id']; echo "</td>";
