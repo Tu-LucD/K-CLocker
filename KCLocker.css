@@ -266,21 +266,40 @@ div.right{
     color: #66FCF1;
 }
 
-/* Cart */
+/* Cart Page*/
 #cartContents{
     color: white;
     width: 60%;
+    height: 500px;
     border: 1px solid #66FCF1;    
     margin: 5% auto;
     font-size: 20px;
-}
-#cartContents td{
-    border: 1px solid red;
+    overflow-x: hidden;
+    overflow-y: scroll;    
+    display: block;    
 }
 .cartItemImg{
     height: 150px;
     padding-bottom: 20px;
+    margin: auto;
 }
 .cartItemName{
-    width: 10%;
+    width: 20%;
+}
+/* Edit Cart Page*/
+.editCartItemContainer{
+    width: 60%;    
+    margin: auto;    
+}
+.editCartItemContainer p{
+    color: #66FCF1;
+    font-size: 20px;
+}
+#modifyItem{
+    margin-right: 5%;
+}
+#editCartQuantity{
+    margin-bottom: 5%;
+    text-align: center;
+    border: #66FCF1 3px solid;
 }

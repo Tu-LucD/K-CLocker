@@ -37,8 +37,7 @@
                     
                     echo '<input type="submit" name="addCart" value="Add to Cart">';
                 }
-            ?>        
-            <!-- <input type="submit" name="addCart" value="Add to Cart"> -->
+            ?>                    
         </div>
     </div>
 </form>

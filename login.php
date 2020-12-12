@@ -3,6 +3,9 @@
     $message = "";
     if(isset($_POST['login'])){
         require('dbConnection.php');
+
+        //Clears what is currently in the cart table
+        mysqli_query($link,"DELETE FROM cart where productId is not null");  
         
         $sql = "SELECT * FROM account WHERE username = '".$_POST["username"]."' and password = '".$_POST["password"]."'";
         $result = mysqli_query($link, $sql);

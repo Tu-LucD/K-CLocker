@@ -83,6 +83,9 @@
                 case 'editProduct':
                     include_once('editProduct.php');
                 break;
+                case 'checkout':
+                    include_once('checkout.php');
+                break;
                 default:
                     break;
             }
