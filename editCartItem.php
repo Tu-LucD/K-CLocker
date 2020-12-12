@@ -25,7 +25,7 @@ while($row=mysqli_fetch_array($res))
         <p>Unit Price:</p>
         <p>$<?php echo $unitPrice;?></p>  
         <p>Quantity</p>  
-        <input type="text" onkeypress="return isNumber(event)" name="quantity" id="editCartQuantity" placeholder="<?php echo $quantity?>">
+        <input type="text" onkeypress="return isNumber(event)" name="quantity" id="editCartQuantity" placeholder="<?php echo $quantity;?>">
         <br>
         <input id="modifyItem" type="submit" name="modify" class="btn btn-info" value="Modify Item">
         <input type="submit" name="remove" class="btn btn-danger" value="Remove Item">        
