@@ -140,10 +140,7 @@
         
         <?php
         // Calculates final total of the order
-                $orderTotal = $subtotal + $tps + $tvq - $promo1 - $promo2 - $promo3 - $promo4;          
-                // $today = date("Y-m-d");
-                $today = strval(date('Y-m-d'));
-                echo $today;      
+                $orderTotal = $subtotal + $tps + $tvq - $promo1 - $promo2 - $promo3 - $promo4;
         ?>
         <p id="orderTotal">Total: <?php echo $orderTotal;?> + Shipping</p>    
             <input type="submit" id="payButton" name="payButton" class="btn btn-success" value="Pay">

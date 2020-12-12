@@ -346,8 +346,7 @@ div.right{
     color: #45A29E;
 }
 #transactionInfo{
-    width: 90%;
-    border: 1px solid red;
+    width: 90%;    
     font-size: 18px;
     margin: auto;
 }
