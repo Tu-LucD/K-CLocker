@@ -52,7 +52,7 @@
         }
         /** Takes the word in the search box and looks at the name or description of the products to find that word */
         else if(isset($_POST['search'])){
-            $res = mysqli_query($link, "SELECT * FROM product, inventory WHERE product.product_name LIKE '%$_POST[name]%' OR product.product_description LIKE '%$_POST[name]%' AND product.id = inventory.id");
+            $res = mysqli_query($link, "SELECT * FROM product, inventory WHERE (product.product_name LIKE '%$_POST[name]%' OR product.product_description LIKE '%$_POST[name]%') AND product.id = inventory.id");
             while($row = mysqli_fetch_array($res)){
                 echo "<tr>";
                 echo "<td>"; ?> <img class="cartItemImg" src="<?php echo $row['product_image']?> " alt=""> <?php echo "</td>";
