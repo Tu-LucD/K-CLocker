@@ -33,6 +33,10 @@
             <input type="text" class="form-control" placeholder="" name="price" value="<?php echo $price; ?>">
         </div>
         <div class="form-group">
+            <label for="imageUrl">Image URL:</label>
+            <input type="text" class="form-control" placeholder="" name="imageUrl" value="<?php echo $imageUrl; ?>">
+        </div>
+        <div class="form-group">
             <label for="sport">Sport:</label>
             <select class="form-control" name="sport" id="sports">
                 <option value="Running" <?php if($sport == 'Running') {echo 'selected="selected"';} ?>>Running</option>
@@ -61,7 +65,10 @@
 
 <?php
     if(isset($_POST["update"])){
-        mysqli_query($link, "UPDATE product SET product_name='$_POST[name]', product_description='$_POST[description]', price='$_POST[price]', sport='$_POST[sport]', category='$_POST[category]' WHERE id=$id");
+        mysqli_query($link, "UPDATE product SET product_name='$_POST[name]', product_description='$_POST[description]', price='$_POST[price]', product_image='$_POST[imageUrl]', sport='$_POST[sport]', category='$_POST[category]' WHERE id=$id");
+        
+        rename($imageUrl, $_POST['imageUrl']);
+
         echo'<script> window.location="index.php?page=editProducts"; </script> ';
 
         
