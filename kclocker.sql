@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2020 at 10:24 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- Generation Time: Dec 12, 2020 at 10:28 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,7 @@ INSERT INTO `account` (`id`, `fname`, `lname`, `email`, `admin`, `username`, `pa
 (1, 'James', 'Cortez', 'jamescortez91@gmail.com', 0, 'james', 'polo'),
 (2, 'James', 'Cortez', 'jamessscortezzz@gmail.com', 1, 'Jamez', 'polo'),
 (3, 'Tu-Luc0', 'Duong', 'tlduong123@gmail.com', 0, 'Sumyonguy0', 'pokemon828'),
-(4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'SumyonguyAdmin', 'pokemon828');
+(4, 'Tu-Luc1', 'Duong', 'tlduong123@gmail.com', 1, 'Sumyonguy1', 'pokemon828');
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,13 @@ CREATE TABLE `cart` (
   `unityPrice` decimal(10,2) NOT NULL,
   `quantity` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cartId`, `productId`, `unityPrice`, `quantity`) VALUES
+(21, 14, '44.99', 2);
 
 -- --------------------------------------------------------
 
@@ -95,7 +102,7 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id`, `quantity`) VALUES
-(1, 100),
+(1, 98),
 (2, 100),
 (3, 100),
 (4, 100),
@@ -108,7 +115,7 @@ INSERT INTO `inventory` (`id`, `quantity`) VALUES
 (11, 100),
 (12, 100),
 (13, 100),
-(14, 100),
+(14, 99),
 (15, 100),
 (16, 100),
 (17, 100),
@@ -199,7 +206,12 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `account_id`, `order_date`, `order_price`, `order_shipping`) VALUES
-(1, 1, '2020-12-16', '9.00', '25.00');
+(1, 1, '2020-12-16', '9.00', '25.00'),
+(16, 3, '2020-12-12', '1183.01', '5.00'),
+(17, 3, '2020-12-12', '9.90', '5.00'),
+(18, 3, '2020-12-12', '9.90', '5.00'),
+(19, 3, '2020-12-12', '390.92', '5.00'),
+(20, 3, '2020-12-12', '51.73', '5.00');
 
 -- --------------------------------------------------------
 
@@ -221,7 +233,15 @@ CREATE TABLE `order_items` (
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `order_item_quantity`, `order_item_price`) VALUES
 (1, 1, 9, 1, '9.00'),
-(2, 1, 2, 1, '99.99');
+(2, 1, 2, 1, '99.99'),
+(3, 16, 22, 1, '63.99'),
+(4, 16, 49, 10, '114.99'),
+(5, 16, 46, 1, '24.49'),
+(6, 16, 10, 1, '174.97'),
+(7, 17, 9, 1, '9.00'),
+(8, 18, 9, 1, '9.00'),
+(9, 19, 1, 2, '170.00'),
+(10, 20, 14, 1, '44.99');
 
 -- --------------------------------------------------------
 
@@ -349,7 +369,7 @@ INSERT INTO `promotions` (`id`, `title`, `description`) VALUES
 (1, 'Big Spender\'s Paradise', 'If the order\'s subtotal is equal or higher than $600, you will receive a 10% discount on your order!!'),
 (2, 'Beginner\'s Luck', 'If it is your first purchase with us, you will receive a 5% discount on your order as a welcome gift!!'),
 (3, 'Team Spirit', 'If you buy the same product 10 times in the same order, get 2 of them for free!!'),
-(4, 'Homecourt Advantage', 'If your shipping location is in Montreal, you will receive a 5% discount on your order!!');
+(4, 'Small Errand', 'If the order\'s subtotal is equal or lower than $20, you will receive a 5% discount on your order!!');
 
 --
 -- Indexes for dumped tables
@@ -417,7 +437,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cartId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -435,13 +455,13 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product`
