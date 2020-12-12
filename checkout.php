@@ -173,6 +173,16 @@
             $quantity = $row['quantity'];
             $price = $row['unityPrice'];
             mysqli_query($link,"INSERT INTO order_items VALUES(NULL, $orderId, $productId, $quantity, $price)");
+
+            //Removes product in inventory
+            $curQuantity=0;                                               
+            $res=mysqli_query($link, "select * from inventory where id=$productId");            
+            while($row=mysqli_fetch_array($res))
+            {
+                $curQuantity = $row["quantity"];
+            }    
+            $curQuantity -= $quantity;
+            mysqli_query($link,"UPDATE inventory SET quantity=$curQuantity where id=$productId");
         }        
         mysqli_query($link,"DELETE FROM cart where productId is not null");  
         ?>
