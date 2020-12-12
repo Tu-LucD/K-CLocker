@@ -303,3 +303,68 @@ div.right{
     text-align: center;
     border: #66FCF1 3px solid;
 }
+/* Checkout page */
+#backToCart{
+    width: 100%;
+    color: #66FCF1;
+    font-size: 20px;    
+    display: block;
+}
+#backToCart:hover{
+    text-decoration: none;
+    transition: 0.25s;
+    color: #45A29E;
+}
+#checkoutLeftDiv{
+    height: 600px;
+    position: relative;
+    width: 55%;    
+    margin: 2.5% 5%;
+    float: left;    
+}
+#checkoutLeftDiv table{
+    height: 500px;        
+    border: #66FCF1 solid 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;    
+    display: block;   
+}
+#checkoutSubtotal{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #66FCF1;
+}
+#checkoutRightDiv{
+    width: 25%;
+    height: 600px;
+    background-color: #C5C6C7;
+    float: right;
+    margin: 2.5% 5% 2.5% 0px;
+    position: relative;
+    text-align: left;
+    color: #45A29E;
+}
+#transactionInfo{
+    width: 90%;
+    border: 1px solid red;
+    font-size: 18px;
+    margin: auto;
+}
+#transactionInfo td:nth-child(1){
+    text-align: left;
+}
+#transactionInfo td:nth-child(2){
+    text-align: right;
+}
+#orderTotal{
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    font-size: 25px;
+}
+#payButton{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
