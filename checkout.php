@@ -193,6 +193,8 @@
             $txt = '';
             mail($to,$subject,$txt,$headers);
         }
+
+        $_SESSION['cartQuantity'] = 0;
         ?>
         <script type=text/javascript>
             window.location="index.php?page=dashboard";
