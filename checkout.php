@@ -185,6 +185,9 @@
             mysqli_query($link,"UPDATE inventory SET quantity=$curQuantity where id=$productId");
         }        
         mysqli_query($link,"DELETE FROM cart where productId is not null");  
+
+        //Sends the receipt to the customer
+        
         ?>
         <script type=text/javascript>
             window.location="index.php?page=dashboard";
