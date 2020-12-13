@@ -7,6 +7,7 @@
         //Clears what is currently in the cart table
         mysqli_query($link,"DELETE FROM cart where productId is not null");  
         
+        /** Select if the credentials can be found in the database */
         $sql = "SELECT * FROM account WHERE username = '".$_POST["username"]."' and password = '".$_POST["password"]."'";
         $result = mysqli_query($link, $sql);
         $row = mysqli_fetch_array($result);
@@ -20,6 +21,7 @@
             $_SESSION['password'] = $row['password'];
             $_SESSION['cartQuantity'] = 0;
         }
+        /** If it is not found display error message */
         else{
             $message = "Invalid username or password";
         }

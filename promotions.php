@@ -29,7 +29,7 @@
 </table>
 
 <?php
-      
+    //Fills promotion cell based on promotionId
     function createPromotionCell($id)
     {
         include('dbConnection.php');  

@@ -49,7 +49,7 @@
         header("Location: index.php?page=dashboard");
     }
     
-
+    /** Sends email to new account user */
     function sendEmail($email){
         $to = $email;
         $subject = 'Account Confirmation';

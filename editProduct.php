@@ -7,6 +7,7 @@
     $productName = $productDescription = $imageUrl = $price = $sport = $category = "";
     $res = mysqli_query($link, "SELECT * FROM product WHERE id=$id");
     while($row = mysqli_fetch_array($res)){
+        /** These variables are used to fill up the form once the page loads */
         $productName = $row['product_name'];
         $productDescription = $row['product_description'];
         $imageUrl = $row['product_image'];
@@ -64,6 +65,7 @@
 </div>
 
 <?php
+    //Takes inputs and updates the product
     if(isset($_POST["update"])){
         mysqli_query($link, "UPDATE product SET product_name='$_POST[name]', product_description='$_POST[description]', price='$_POST[price]', product_image='$_POST[imageUrl]', sport='$_POST[sport]', category='$_POST[category]' WHERE id=$id");
         

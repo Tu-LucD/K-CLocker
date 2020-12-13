@@ -43,6 +43,7 @@ while($row=mysqli_fetch_array($res))
     }
 </script>
 <?php
+    //If the customer wants to modify the quantity of the selected item in their cart
     if(isset($_POST['modify']))
     {
         if(!$_POST['quantity']) echo "You must enter a quantity or click the remove item button";
@@ -54,7 +55,7 @@ while($row=mysqli_fetch_array($res))
             $_SESSION['cartQuantity'] += $_POST['quantity'];
         }        
     }
-
+    //If the user wants to remove an item from their cart
     if(isset($_POST['remove']))
     {
         mysqli_query($link,"DELETE FROM cart where productId=$id");  

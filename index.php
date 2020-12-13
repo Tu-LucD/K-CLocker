@@ -15,13 +15,14 @@
     <?php
         include_once('navbar.php');
         
+        //Gets page variable and redirects to correct webpage
         if(isset($_GET['page'])){
             $page = $_GET['page'];
         
             switch($page)
             {
                 case 'home':
-                    include_once('home.php');
+                    include_once('home.php');                    
                 break;
                 case 'about':
                     include_once('about.php');
@@ -30,7 +31,7 @@
                     include_once('contact.php');
                 break;
                 case 'products':
-                    include_once('products.php');
+                    include_once('products.php');                      
                 break;
                 case 'login':
                     include_once('login.php');

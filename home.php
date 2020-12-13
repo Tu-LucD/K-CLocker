@@ -17,3 +17,9 @@
     <div class="homeTitles"><h2>Tennis</h2></div>
     <div class="homeImage" id="homeImage7"></div>
 </div>
+<?php
+    $_SESSION['currentRes'] = " from product order by product_name";
+    $_SESSION['pageno'] = 1;
+    $_SESSION['type'] = 0;
+    $_SESSION['filter'] = "None";
+?>

@@ -63,26 +63,30 @@
             <tr>
                 <th colspan=2><input type="submit" name="apply" value="Apply Filter" />  <input type="submit" name="reset" value="Reset Filter" /></th>                
             </tr>
-        </table>                                    
-    <!-- </form> -->
+        </table>                                        
 </div>
 <div id="searchDiv">
-    <div id="productsNav">
-        <!-- <form action="" method="post"> -->
-            <input type="submit" name="previousPage" value="Previous">
-            <input type="submit" name="nextPage" value="Next">
-        <!-- </form> -->
+    <div id="productsNav">        
+            <input class="btn btn-info" type="submit" name="previousPage" value="Previous">
+            <input class="btn btn-info" type="submit" name="nextPage" value="Next">        
     </div>
-    <div id="searchBar">      
-        <!-- <form action="" method="post">   -->
+    <div id="searchBar">              
             <input type="text" name="searchProduct">
-            <input type="submit" name="search" value="Search">
-        <!-- </form> -->
+            <input type="submit" name="search" value="Search">        
     </div>    
 </div>
 <div id="productsDiv">
     <table>    
-    <?php
+    <?php            
+        //Displays products upon opening Products page
+        if(!isset($_POST['previousPage']) and !isset($_POST['nextPage']) and !isset($_POST['search']) and !isset($_POST['apply']) and !isset($_POST['reset']))
+        {
+            $_SESSION['currentRes'] = " from product order by product_name";
+            $_SESSION['pageno'] = 1;
+            $_SESSION['type'] = 0;
+            $_SESSION['filter'] = "None";
+            fillProductTable();
+        }
         //Stores currently active filter(s)
         if(!isset($_SESSION['filter']))
         {
@@ -118,6 +122,7 @@
         //Takes result of sql query to make rows of products
         function fillProductTable(){
             include('dbConnection.php');    
+            echo "<tr><td colspan='3'>Page: $_SESSION[pageno]</td></tr>";
             echo "<tr><td colspan='3'>Filter: $_SESSION[filter]</td></tr>";
             $query = $_SESSION['currentRes'];            
             $pageno = $_SESSION['pageno'];                        
@@ -230,7 +235,7 @@
 
                 
                 $_SESSION['currentRes'] = $filteredQuery." order by product_name";
-                $_SESSION['currentIndex'] = 1;
+                $_SESSION['pageno'] = 1;
                 $_SESSION['type'] = 1;                
                 fillProductTable();                
             }
