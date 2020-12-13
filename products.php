@@ -83,22 +83,23 @@
 <div id="productsDiv">
     <table>    
     <?php
+        //Stores currently active filter(s)
         if(!isset($_SESSION['filter']))
         {
             $_SESSION['filter'] = "None";
         }        
-
+        //Stores current resource
         if(!isset($_SESSION['currentRes']))
         {
             $_SESSION['currentRes'] = " from product order by product_name";               
             fillProductTable();
         }
-
+        //Stores current page in navigation
         if(!isset($_SESSION['pageno']))
         {
             $_SESSION['pageno'] = 1;
         }
-
+        //Variable used to identify if the customer chose to filter with categories
         if(!isset($_SESSION['type']))
         {
             $_SESSION['type'] = 0;
@@ -119,30 +120,37 @@
             include('dbConnection.php');    
             echo "<tr><td colspan='3'>Filter: $_SESSION[filter]</td></tr>";
             $query = $_SESSION['currentRes'];            
-            $pageno = $_SESSION['pageno'];            
+            $pageno = $_SESSION['pageno'];                        
             $no_of_records_per_page = 9;
             $offset = ($pageno-1) * $no_of_records_per_page;                        
+            //If anything but a category filter is applied
             if($_SESSION['type'] == 0)
             {
+                //Calculates number of pages
                 $total_pages_sql = "SELECT COUNT(*)".$query;            
                 $result = mysqli_query($link,$total_pages_sql);
                 $total_rows = mysqli_fetch_array($result)[0];
                 $total_pages = ceil($total_rows / $no_of_records_per_page);
         
+                //Displays products of selected page
                 $sql = "SELECT *$query LIMIT $offset, $no_of_records_per_page";            
                 $res_data = mysqli_query($link,$sql);
             }
+            //If a category filter is applied
             else
             {
+                //Calculates number of pages
                 $total_pages_sql = "SELECT COUNT(*) FROM (".$query.") I";                            
                 $result = mysqli_query($link,$total_pages_sql);
                 $total_rows = mysqli_fetch_array($result)[0];
                 $total_pages = ceil($total_rows / $no_of_records_per_page);
         
+                //Displays products of selected page
                 $sql = "$query LIMIT $offset, $no_of_records_per_page";            
                 $res_data = mysqli_query($link,$sql);
             }
 
+            //Prints products based on query
             $counter = 1;
             echo "<tr>";
             while($row = mysqli_fetch_array($res_data)){
@@ -164,6 +172,7 @@
                 $sportQuery = "";
                 $priceQuery = "";
                 $checked = 0;
+                //If a category is chosen
                 if(isset($_POST["filterCategory"]))
                 {
                     $category = $_POST["filterCategory"][0];
@@ -171,6 +180,7 @@
                     $checked++;              
                     $_SESSION['filter'] .= "Category-$category ";
                 }
+                //If a sport is chosen
                 if(isset($_POST["filterSport"]))
                 {
                     $sport = $_POST["filterSport"][0];
@@ -178,6 +188,7 @@
                     $checked++;
                     $_SESSION['filter'] .= "Sport-$sport ";
                 }
+                //If a price is chosen
                 if(isset($_POST["filterPrice"]))
                 {
                     $price = $_POST["filterPrice"][0];                    
@@ -259,6 +270,7 @@
         //Triggers if <- button is clicked
         if(isset($_POST["previousPage"]))
         {
+            //Checks if clicking Previous goes out of bounds
             if($_SESSION['pageno'] != 1)
             {
                 $_SESSION['pageno']--;
@@ -277,7 +289,8 @@
             $pageno = $_SESSION['pageno'];            
             $no_of_records_per_page = 9;
             $offset = ($pageno-1) * $no_of_records_per_page;            
-            
+         //Counts number of pages
+            //If anything but a category filter is applied
             if($_SESSION['type'] == 0)
             {
                 $total_pages_sql = "SELECT COUNT(*)".$query;            
@@ -285,6 +298,7 @@
                 $total_rows = mysqli_fetch_array($result)[0];
                 $total_pages = ceil($total_rows / $no_of_records_per_page);                        
             }
+            //If category filter is applied
             else
             {
                 $total_pages_sql = "SELECT COUNT(*) FROM (".$query.") I";                            
@@ -292,6 +306,7 @@
                 $total_rows = mysqli_fetch_array($result)[0];
                 $total_pages = ceil($total_rows / $no_of_records_per_page);        
             }
+            //Determines if clicking Next goes out of bounds
             if($_SESSION['pageno'] < $total_pages)
             {
                 $_SESSION['pageno']++;

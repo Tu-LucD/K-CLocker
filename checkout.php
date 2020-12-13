@@ -187,7 +187,12 @@
         mysqli_query($link,"DELETE FROM cart where productId is not null");  
 
         //Sends the receipt to the customer
-        
+        function sendEmail($email){
+            $to = $email;
+            $subject = 'Order Receipt';
+            $txt = '';
+            mail($to,$subject,$txt,$headers);
+        }
         ?>
         <script type=text/javascript>
             window.location="index.php?page=dashboard";
