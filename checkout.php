@@ -163,11 +163,11 @@
             $orderId = $row['id'];
         }
 
-        $res = mysqli_query($link, "SELECT * FROM cart");
+        $cartRes = mysqli_query($link, "SELECT * FROM cart");
         $productId = 0;
         $quantity = 0;
         $price = 0;
-        while($row = mysqli_fetch_array($res))
+        while($row = mysqli_fetch_array($cartRes))
         {
             $productId = $row['productId'];
             $quantity = $row['quantity'];
@@ -176,8 +176,8 @@
 
             //Removes product in inventory
             $curQuantity=0;                                               
-            $res=mysqli_query($link, "select * from inventory where id=$productId");            
-            while($row=mysqli_fetch_array($res))
+            $inventoryRes=mysqli_query($link, "select * from inventory where id=$productId");            
+            while($row=mysqli_fetch_array($inventoryRes))
             {
                 $curQuantity = $row["quantity"];
             }    
