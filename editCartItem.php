@@ -50,6 +50,8 @@ while($row=mysqli_fetch_array($res))
         {
             mysqli_query($link,"UPDATE cart SET quantity=$_POST[quantity] where productId=$id");
             header("Location: index.php?page=cart");
+            $_SESSION['cartQuantity'] -= $quantity;
+            $_SESSION['cartQuantity'] += $_POST['quantity'];
         }        
     }
 
@@ -57,5 +59,6 @@ while($row=mysqli_fetch_array($res))
     {
         mysqli_query($link,"DELETE FROM cart where productId=$id");  
         header("Location: index.php?page=cart");
+        $_SESSION['cartQuantity'] -= $quantity;
     }
 ?>
