@@ -43,8 +43,18 @@
             $_SESSION['admin'] = $row['admin'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['password'] = $row['password'];
+            $_SESSION['cartQuantity'] = 0;
         }
+        sendEmail($_SESSION['email']);
         header("Location: index.php?page=dashboard");
+    }
+    
+
+    function sendEmail($email){
+        $to = $email;
+        $subject = 'Account Confirmation';
+        $txt = '';
+        mail($to,$subject,$txt,$headers);
     }
 
 ?>

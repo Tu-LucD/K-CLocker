@@ -64,6 +64,7 @@
                 echo "<td>"; echo $row['category']; echo "</td>";
                 echo "<td>"; echo $row['quantity']; echo "</td>";
                 echo "<td>"; ?> <a href="index.php?page=editProduct&productId=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">Edit</button></a> <?php echo "</td>";
+                echo "<td>"; ?> <a href="index.php?page=inventory&productId=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">Quantity</button></a> <?php echo "</td>";
                 echo "</tr>";
             }
         }
@@ -81,6 +82,7 @@
                 echo "<td>"; echo $row['category']; echo "</td>";
                 echo "<td>"; echo $row['quantity']; echo "</td>";
                 echo "<td>"; ?> <a href="index.php?page=editProduct&productId=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">Edit</button></a> <?php echo "</td>";
+                echo "<td>"; ?> <a href="index.php?page=inventory&productId=<?php echo $row["id"];?>"><button type="button" class="btn btn-info">Quantity</button></a> <?php echo "</td>";
                 echo "</tr>";
             }
         }

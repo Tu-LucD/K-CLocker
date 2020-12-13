@@ -21,7 +21,7 @@
     }    
 ?>
 <a id="goBackToProduct" href="index.php?page=products"><i class="fa fa-arrow-left"></i>Go back to Products</a>
-<form action="" method="post">
+<form action="<?php  ?>" method="post">
     <div id="pdDetailsContainer">
         <div id="productDetailImgDiv"><img src="<?php echo $imageUrl?>" alt=""></div>
         <div id="productPurchasingInfo">
@@ -57,7 +57,9 @@
         //Product is
         if(!mysqli_fetch_array($res))
         {       
-            $response = mysqli_query($link,"INSERT INTO cart values(NULL, $id,$price,1)");                
+            $response = mysqli_query($link,"INSERT INTO cart values(NULL, $id,$price,1)");
+            $_SESSION['cartQuantity'] += 1;   
+            header("Location: index.php?page=productDetails&id=$id");          
         }
         //Product is already in cart
         else
@@ -72,12 +74,11 @@
             //Increment quantity by 1 and update the table
             $quantity++;            
             mysqli_query($link,"UPDATE cart SET quantity=$quantity where productId=$id");
-            
             //Increment number of items in cart
-            $nbCart = $_SESSION['cartQuantity'];
-            $nbCart++;
-            $_SESSION['cartQuantity'] = $nbCart;
-        }        
+            $_SESSION['cartQuantity'] += 1;
+            header("Location: index.php?page=productDetails&id=$id");
+        }       
+        
     }
     
 ?>
